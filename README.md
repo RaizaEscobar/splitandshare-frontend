@@ -7,12 +7,12 @@
 
 Tired of the extremely high prices of the rooms in shared flats? Tired of aparment rental skams and paying lots of money for a super small room? Find people as fed up with the situation as you and find a home together!
 
-This is an app to find the ideal flatmate/s and rent a flat together. The app helps to find the flatmate, find the perfect flat and chat with the ideal flatmate or the owner of the flat.
+This is an app to seek for the ideal flatmate/s and rent a flat together. The app helps to find the flatmate, find the perfect flat and chat with the ideal flatmate or the owner of the flat.
 
 ## User Stories
 
 -  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
--  **Homepage:** As an anon/user can calculate the fair price of the rooms in a share flat, as well as being assigned to one of the rooms according to their preferences and budget
+-  **Homepage:** As an anon/user can calculate the fair price of the rooms in a shared flat, as well as being assigned to one of the rooms according to their preferences and budget
 -  **Signup:** As an anon I can sign up in the platform, either as a flat hunter, either as a flat owner
 -  **Login:** As a user I can login to the platform 
 -  **Logout:** As a user I can logout from the platform
