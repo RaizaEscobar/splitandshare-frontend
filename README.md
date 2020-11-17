@@ -217,7 +217,7 @@ Message model
 ## API Endpoints (backend routes)
 
 | HTTP Method | URL                           | Request Body                 |  Description                                                  |
-| ----------- | ---------------------------   | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| ----------- | ---------------------------   | ---------------------------- | ------------------------------------------------------------- |
 | GET         | `/  `                         |                              | Home page                                                    |
 | POST        | `/auth/signup`                | {name, email, password}      |  Checks if fields not empty and user not exists, then create user with encrypted password, and store user in session |
 | POST        | `/auth/login`                 | {username, password}         | Checks if fields not empty, if user exists, and if password matches, then stores user in session |
