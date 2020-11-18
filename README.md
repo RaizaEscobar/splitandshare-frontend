@@ -5,9 +5,9 @@
 
 ## Description
 
-Tired of the extremely high prices of the rooms in shared flats? Tired of aparment rental skams and paying lots of money for a super small room? Find people as fed up with the situation as you and find a home together!
+Tired of paying extortionate prices for shared flats? Tired of getting scammed by rental moguls who overcharge you for tiny rooms? Find your tribe: pair up with people in the same situation and find your dream home together!
 
-This is an app to seek for the ideal flatmate/s and rent a flat together. The app helps to find the flatmate, find the perfect flat and chat with the ideal flatmate or the owner of the flat.
+This app will help you find your dream flatmate, and your dream home. Use it to find your perfect flatmate, your perfect place to live, and use it to start chatting with your future flatmate and future landlord right away. 
 
 ## User Stories
 
@@ -107,8 +107,14 @@ This is an app to seek for the ideal flatmate/s and rent a flat together. The ap
   - auth.getUser() // synchronous
 
 
+
 <br>
 
+## Wireframes
+
+https://drive.google.com/file/d/16gvGI8caHcQDYwVe4zCJ_kYg1vrxoBkb/view?usp=sharing
+
+<br>
 
 # Server / Backend
 
