@@ -105,22 +105,6 @@ This is an app to seek for the ideal flatmate/s and rent a flat together. The ap
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Tournament Service
-  - tournament.list()
-  - tournament.detail(id)
-  - tournament.add(id)
-  - tournament.delete(id)
-  
-- Player Service 
-
-  - player.detail(id)
-  - player.add(id)
-  - player.delete(id)
-
-- Game Service
-
-  - Game.put(id)
-
 
 
 <br>
