@@ -220,6 +220,7 @@ Message model
 | POST        | `/addMyFlat`                  | {title,description,images, price, contact, rooms, restrooms, neighborhood, aircondition, elevator, balcony, parking, address, centralHeating, squareMeters, furnished,  terrace, swimmingPool, storeRoom, builtinWardrobes     }      | Adds a new flat                                              |
 | GET         | `/addMyFlat`                  |                              | Shows the add my flat page                                   |
 | GET         | `/myListings`                 |                              | Shows the my listings page                                   |
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
 | POST        | `/myListings/edit/:id`        | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor} | Edits the flat details                                                    |
 
 <br>
