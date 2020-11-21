@@ -125,7 +125,11 @@ User model
 
 ```javascript
 {
+<<<<<<< HEAD
   name: {type: String, required: true, unique: true},
+=======
+  username: {type: String, required: true, unique: true},
+>>>>>>> main
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   image: {type: String},
@@ -220,6 +224,10 @@ Message model
 | POST        | `/addMyFlat`                  | {title,description,images, price, contact, rooms, restrooms, neighborhood, aircondition, elevator, balcony, parking, address, centralHeating, squareMeters, furnished,  terrace, swimmingPool, storeRoom, builtinWardrobes     }      | Adds a new flat                                              |
 | GET         | `/addMyFlat`                  |                              | Shows the add my flat page                                   |
 | GET         | `/myListings`                 |                              | Shows the my listings page                                   |
+<<<<<<< HEAD
+=======
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
+>>>>>>> main
 | POST        | `/myListings/edit/:id`        | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor} | Edits the flat details                                                    |
 
 <br>
