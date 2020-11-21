@@ -1,70 +1,256 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Split & Share
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Tired of paying extortionate prices for shared flats? Tired of getting scammed by rental moguls who overcharge you for tiny rooms? Find your tribe: pair up with people in the same situation and find your dream home together!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app will help you find your dream flatmate, and your dream home. Use it to find your perfect flatmate, your perfect place to live, and use it to start chatting with your future flatmate and future landlord right away. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## User Stories
 
-### `npm test`
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **Homepage:** As an anon/user can calculate the fair price of the rooms in a shared flat, as well as being assigned to one of the rooms according to their preferences and budget
+-  **Signup:** As an anon I can sign up in the platform, either as a flat hunter, either as a flat owner
+-  **Login:** As a user I can login to the platform 
+-  **Logout:** As a user I can logout from the platform
+-  **Dashboard / Flat Hunter:** As a flat hunter user, I can have access to my dashboard in order to improve my profile, check my messages, find the ideal flatmate, check the flatmates that I have saved as favorites, find the ideal flat or access my favorite flats
+-  **Improve my profile / Flat Hunter:** As a user I can edit my profile
+-  **Ideal Flatmates / Flat Hunter:** As a user I can search for flatmates. In this page, the platform shows us perfect flatmate matches according to our profile but also a list of potential flatmates looking for flat in the same area
+-  **Check flatmates' profile / Flat Hunter:** As a user I cam see the flatmates' profile
+-  **Ideal flats / Flat Hunter:** As a user I can search for flats. In this page, the platform shows us perfect flat matches according to our profile but also a list of other flats in the same area
+-  **Flat Details:** As a user I can see the details of the flat
+-  **Dashboard / Flat Owner:** As a flat owner, I can add my flat, check my listings and my messages
+-  **Add my flat / Flat Owner:** As a flat owner, I can add my flat details
+-  **Edit my flat / Flat Owner:** As a flat owner, I can edit my flat
+-  **Check my listings/ Flat Owner:** As a flat owner, I can check my listings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backlog
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-  **Homepage:** Add additional filters in order to calculate the price based on whether the room has a bathroom or a balcony
+-  **Signup: / Login:** Add social media login and signup
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Client / Frontend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## React Router Routes (React App)
+| Path                      | Component            | Permissions                 | Behavior                                                     |
+| ------------------------- | -------------------- | --------------------------- | ------------------------------------------------------------ |
+| `/`                       | HomePage             | public `<Route>`            | Home page                                                    |
+| `/signup`                 | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to respective dashboard after signup |
+| `/login`                  | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to respective dashboard after login |
+| `/dashboardFlatHunter`    | DashboardFlatHunter  | user only `<PrivateRoute>`  | Shows the options of improving user's profile, messages, flatmate and flat search and flats/flatmates marked as favorite                              |
+| `/improveMyProfile`       | ImproveMyProfile     | user only `<PrivateRoute>`  | Edits flat hunter's profile                                   |
+| `/idealFlatmates`         | IdealFlatmates       | user only `<PrivateRoute>`  | Shows the ideal flatmates' matches according to the flat hunter's preferences. Shows also other potential flatmates looking for a flat in the same area                          |
+| `/idealFlatmates/:id`     | IdealFlatmatesProfile| user only `<PrivateRoute>`  | Shows the profile of the potential flatmate selected        |
+| `/idealFlats`             | IdealFlats           | user only  `<PrivateRoute>` | Shows the ideal flats' matches according to the flat hunter's preferences. Shows also other flats in the same area                               |
+| `/idealFlats/:id`         | IdealFlatsDetail     | user only `<PrivateRoute>`  | Shows the details of the flat selected                       |
+| `/dashboardFlatOwner`     | DashboardFlatOwner   | user only `<PrivateRoute>`  | Shows the options of adding a flat, checking the listings and messages                                 |
+| `/addMyFlat`              | AddMyFlat            | user only  `<PrivateRoute>` | Adds a new flat                                              |
+| `/myListings`             | MyListings           | user only  `<PrivateRoute>` | Shows the listings of the flat owner                         |
+| `/myListings/edit/:id`    | EditListing          | user only `<PrivateRoute>`  | Edits the listing                                            |
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Components
 
-### Analyzing the Bundle Size
+- HomePage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- LoginPage
 
-### Making a Progressive Web App
+- SignupPage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- DashboardFlatHunter
 
-### Advanced Configuration
+- ImproveMyProfile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- IdealFlatmates
 
-### Deployment
+- IdealFlatmatesProfile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- IdealFlats
 
-### `npm run build` fails to minify
+- IdealFlatsDetail
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- DashboardFlatOwner
+
+- AddMyFlat
+
+- MyListings
+
+- EditListing
+
+- Navbar
+
+
+  
+
+ 
+
+## Services
+
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.me()
+  - auth.getUser() // synchronous
+
+
+
+<br>
+
+## Wireframes
+
+https://drive.google.com/file/d/16gvGI8caHcQDYwVe4zCJ_kYg1vrxoBkb/view?usp=sharing
+
+<br>
+
+# Server / Backend
+
+
+## Models
+
+User model
+
+```javascript
+{
+  username: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  image: {type: String},
+  userType: { type: String,  enum : ['Flat Hunter','Flat Owner '] },
+  gender: { type: String,  enum : ['female','male', 'other'],  default: 'other' },
+  hasPet: Boolean,
+  isSmoking: Boolean,
+  isStudying: Boolean,
+  isWorking: Boolean,
+  age: Number,
+  maxBudget: Number,
+  searchingFor: { Flatmates : Number,
+                  gender: { type: String,  enum : ['female','male', 'indifferent'],  default: 'indifferent' },
+                  pets: { type: String,  enum : ['I don`t want','I don`t mind'] },
+                  location: String,
+                  minAge: Number,
+                  maxAge: Number
+  },
+   favoriteFlats: [{type: Schema.Types.ObjectId, ref:'Flat'}]
+   favoriteFlatmate: [{type: Schema.Types.ObjectId, ref:'User'}]
+}
+```
+
+
+
+
+Flat model
+
+```javascript
+ {
+  title: {type: String, required: true, unique: true},
+  description: {type: String, required: true, unique: true},
+  images : [{type: String}],
+  price: Number,
+  contact: String,
+  rooms: Number,
+  restrooms: Number,
+  neighborhood: String,
+  aircondition: Boolean,
+  elevator: Boolean,
+  balcony: Boolean,
+  parking: Boolean,
+  address: String,
+  centralHeating: Boolean,
+  squareMeters: Number,
+  furnished: Boolean,
+  terrace: Boolean,
+  swimmingPool: Boolean,
+  storeRoom: Boolean,
+  builtinWardrobes: Boolean
+ }
+```
+
+Message model
+
+```javascript
+{
+    fromUser: [{type: Schema.Types.ObjectId, ref:'User'}],
+    toUser: [{type: Schema.Types.ObjectId, ref:'User'}],
+    isRead: Boolean,
+    message: String,
+      {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+};
+```
+
+
+
+<br>
+
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL                           | Request Body                 |  Description                                                  |
+| ----------- | ---------------------------   | ---------------------------- | ------------------------------------------------------------- |
+| GET         | `/  `                         |                              | Home page                                                    |
+| POST        | `/auth/signup`                | {name, email, password}      |  Checks if fields not empty and user not exists, then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`                 | {username, password}         | Checks if fields not empty, if user exists, and if password matches, then stores user in session |
+| POST        | `/auth/logout`                | (empty)                      | Logs out the user                                            |
+| GET         | `/dashboardFlatHunter`        |                              | Shows the flat hunter's dashboard                            |
+| POST        | `/improveMyProfile`           | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor}            |    edits flat hunter's profile 
+| GET         | `/improveMyProfile`           |                              |    Shows the editing form of the flat hunter's profile       |
+| GET         | `/idealFlatmates`             |                              | Shows the ideal flatmates page                               |
+| GET         | `/idealFlatmates/:id`         | {name,img,players}           | Shows the profile of the flatmate selected                   |
+| GET         | `/idealFlats`                 |                              | Shows the ideal flats page                                   |
+| GET         | `/idealFlats/:id`             |                              | Shows the details of the flat selected                       |
+| GET         | `/dashboardFlatOwner`         | {id}                         | Shows the flat owner's dashboard                             |
+| POST        | `/addMyFlat`                  | {title,description,images, price, contact, rooms, restrooms, neighborhood, aircondition, elevator, balcony, parking, address, centralHeating, squareMeters, furnished,  terrace, swimmingPool, storeRoom, builtinWardrobes     }      | Adds a new flat                                              |
+| GET         | `/addMyFlat`                  |                              | Shows the add my flat page                                   |
+| GET         | `/myListings`                 |                              | Shows the my listings page                                   |
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
+| POST        | `/myListings/edit/:id`        | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor} | Edits the flat details                                                    |
+
+<br>
+
+
+## Links
+
+### Trello/Kanban
+
+[Link to your trello board](https://trello.com/b/nTn3UY0B/proyectomodulo3) 
+
+### Git
+
+The url to your repository and to your deployed project
+
+[Client repository Link](https://github.com/RaizaEscobar/splitandshare-frontend)
+
+[Server repository Link](https://github.com/RaizaEscobar/SplitandShare-Backend)
+
+[Deployed App Link](http://heroku.com)
+
+### Slides
+
+The url to your presentation slides
+
+[Slides Link](http://slides.com)
+
+
+
+
+
+
+
