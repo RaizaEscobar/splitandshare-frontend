@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { withAuth } from "../lib/AuthProvider";
 
 function NavbarItem(props) {
   return (
     <Link className="navbar-item is-capitalized" to={`/${props.link}`}>
       {props.page}
+      
     </Link>
   );
 }
@@ -33,6 +35,7 @@ class Navbar extends Component {
     });
   };
   render() {
+    const { email, logout, isLoggedin } = this.props;
     let navbarItems = this.props.pages.map((page) => (
       <NavbarItem page={page.page} key={page.page} link={page.link} />
     ));
@@ -48,7 +51,10 @@ class Navbar extends Component {
         <div
           className={`navbar-menu ${this.state.activeMenu ? "is-active" : ""}`}
         >
-          <div className="navbar-start">{navbarItems}</div>
+          <div className="navbar-start">
+            {navbarItems}
+            <button onClick={logout} >Logout</button>
+          </div>
         </div>
       </nav>
     );
@@ -59,4 +65,4 @@ Navbar.propTypes = {
   color: PropTypes.string,
 };
 
-export default Navbar;
+export default withAuth(Navbar);

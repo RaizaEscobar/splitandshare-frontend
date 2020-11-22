@@ -5,9 +5,9 @@
 
 ## Description
 
-Tired of the extremely high prices of the rooms in shared flats? Tired of aparment rental skams and paying lots of money for a super small room? Find people as fed up with the situation as you and find a home together!
+Tired of paying extortionate prices for shared flats? Tired of getting scammed by rental moguls who overcharge you for tiny rooms? Find your tribe: pair up with people in the same situation and find your dream home together!
 
-This is an app to seek for the ideal flatmate/s and rent a flat together. The app helps to find the flatmate, find the perfect flat and chat with the ideal flatmate or the owner of the flat.
+This app will help you find your dream flatmate, and your dream home. Use it to find your perfect flatmate, your perfect place to live, and use it to start chatting with your future flatmate and future landlord right away. 
 
 ## User Stories
 
@@ -105,26 +105,16 @@ This is an app to seek for the ideal flatmate/s and rent a flat together. The ap
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Tournament Service
-  - tournament.list()
-  - tournament.detail(id)
-  - tournament.add(id)
-  - tournament.delete(id)
-  
-- Player Service 
-
-  - player.detail(id)
-  - player.add(id)
-  - player.delete(id)
-
-- Game Service
-
-  - Game.put(id)
 
 
 
 <br>
 
+## Wireframes
+
+https://drive.google.com/file/d/16gvGI8caHcQDYwVe4zCJ_kYg1vrxoBkb/view?usp=sharing
+
+<br>
 
 # Server / Backend
 
@@ -135,7 +125,15 @@ User model
 
 ```javascript
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
   name: {type: String, required: true, unique: true},
+=======
+  username: {type: String, required: true, unique: true},
+>>>>>>> main
+=======
+  username: {type: String, required: true, unique: true},
+>>>>>>> intermedia
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   image: {type: String},
@@ -230,6 +228,14 @@ Message model
 | POST        | `/addMyFlat`                  | {title,description,images, price, contact, rooms, restrooms, neighborhood, aircondition, elevator, balcony, parking, address, centralHeating, squareMeters, furnished,  terrace, swimmingPool, storeRoom, builtinWardrobes     }      | Adds a new flat                                              |
 | GET         | `/addMyFlat`                  |                              | Shows the add my flat page                                   |
 | GET         | `/myListings`                 |                              | Shows the my listings page                                   |
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
+>>>>>>> main
+=======
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
+>>>>>>> intermedia
 | POST        | `/myListings/edit/:id`        | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor} | Edits the flat details                                                    |
 
 <br>
