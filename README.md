@@ -126,10 +126,14 @@ User model
 ```javascript
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   name: {type: String, required: true, unique: true},
 =======
   username: {type: String, required: true, unique: true},
 >>>>>>> main
+=======
+  username: {type: String, required: true, unique: true},
+>>>>>>> intermedia
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   image: {type: String},
@@ -225,9 +229,13 @@ Message model
 | GET         | `/addMyFlat`                  |                              | Shows the add my flat page                                   |
 | GET         | `/myListings`                 |                              | Shows the my listings page                                   |
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 | GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
 >>>>>>> main
+=======
+| GET         | `/myListings/edit/:id`        |                              | Shows the my edit flat page                                   |
+>>>>>>> intermedia
 | POST        | `/myListings/edit/:id`        | {gender, hasPet, isSmoking, isStudying, isWorking, age, maxBudget, searchingFor} | Edits the flat details                                                    |
 
 <br>
