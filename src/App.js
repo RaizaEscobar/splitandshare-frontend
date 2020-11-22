@@ -3,6 +3,10 @@ import './App.css';
 import Navbar from "./Component/Navbar.js"
 import 'bulma/css/bulma.css';
 import Calculator from './Component/Calculator';
+import DashboardHunter from './Component/DashboardHunter.js'
+import { Route, Switch } from 'react-router-dom';
+import DetailFlatmate from './Component/DetailFlatmate';
+
 
 
 let styles = {
@@ -41,7 +45,12 @@ function App() {
   return (
     <div style={styles}>
     <Navbar pages={pages}/>
-      <Calculator></Calculator>
+
+    <Switch>
+    <Route exact path="/calculator" component={Calculator}/>
+    <Route exact path="/" component={DashboardHunter}/>
+    <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
+      </Switch>
     </div>
   );
 }

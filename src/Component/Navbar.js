@@ -39,7 +39,7 @@ class Navbar extends Component {
     return (
       <nav className={`navbar is-fixed-top`}>
         <div className="navbar-brand">
-          <NavbarItem page="logo" />
+          <NavbarItem page="logo" link="" />
           <NavbarBurger
             active={this.state.activeMenu}
             toggleMenu={this.toggleMenu}
