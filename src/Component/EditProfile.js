@@ -43,7 +43,7 @@ export class EditProfile extends Component {
 
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const {image,gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking} = this.state.user;
+        const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking} = this.state.user;
         axios.post(`http://localhost:4000/improveMyProfile/${this.props.user._id}`, this.state.user).then(response => {
             console.log(response.data)
         })
@@ -59,7 +59,7 @@ export class EditProfile extends Component {
             <label> <b>Profile picture:</b> </label>
             <input type="file" name="image" onChange={this.handleFileUpload} />
             <label> <b>Name:</b> </label>
-           
+            <input type="text" name="username" value={this.state.user.username} onChange={(e) => this.handleChange(e)} />
             <label> <b>Gender</b> </label>
             <select name="gender" value={this.state.user.gender} onChange={(e) => this.handleChange(e)}>
                   <option value="female">Female</option>
@@ -90,6 +90,25 @@ export class EditProfile extends Component {
             <select name="isWorking" value={this.state.user.isWorking} onChange={(e) => this.handleChange(e)} >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
+          </select>
+          <label> <h4>I am looking for</h4> </label>
+          <label> <b>Gender</b> </label>
+            <select name="gender" value={this.state.user.searchingFor.gender} onChange={(e) => this.handleChange(e)}>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="indifferent">Indifferent</option>
+          </select>
+          <label> <b>Pets</b> </label>
+            <select name="hasPet" value={this.state.user.searchingFor.pets} onChange={(e) => this.handleChange(e)} >
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                  <option value="indifferent">Indifferent</option>
+          </select>
+          <label> <b>Smoke</b> </label>
+            <select name="smoke" value={this.state.user.searchingFor.smoke} onChange={(e) => this.handleChange(e)} >
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                  <option value="indifferent">Indifferent</option>
           </select>
           <button type="submit">Save your profile </button>
         </form>

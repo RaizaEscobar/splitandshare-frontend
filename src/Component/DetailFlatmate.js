@@ -31,8 +31,8 @@ function DetailFlatmate(props) {
           <li>Studying:{flatmate.isStudying}</li>
           <li>Working:{flatmate.isWorking}</li>
         </ul>
-        {/* <div> */}
-        {/*   <p> I am looking for:</p>
+         <div> 
+          <p> I am looking for:</p>
           <ul>
           <li>Gender: {flatmate.searchingFor.gender}</li>
           <li>Max number of flatmates: {flatmate.searchingFor.Flatmates}</li>
@@ -41,7 +41,7 @@ function DetailFlatmate(props) {
           <li>Age: Between{flatmate.searchingFor.minAge} and {flatmate.searchingFor.maxAge}</li>
           
           </ul>
-        </div>  */}
+        </div>  
         <ButtonCard buttonTitle="My Favorite flats" link="/"  />
         <ButtonCard buttonTitle="Edit my profile" link="/improveMyProfile"  />
         
