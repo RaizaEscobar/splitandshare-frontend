@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withAuth } from "../lib/AuthProvider";
+import logo from "../images/logo.png"
 
 function NavbarItem(props) {
   return (
@@ -42,7 +43,7 @@ class Navbar extends Component {
     return (
       <nav className={`navbar is-fixed-top`}>
         <div className="navbar-brand">
-          <NavbarItem page="logo" link="" />
+          <Link to="/"><img src={logo} alt="logo" style={{height:"50px"}}/></Link>
           <NavbarBurger
             active={this.state.activeMenu}
             toggleMenu={this.toggleMenu}

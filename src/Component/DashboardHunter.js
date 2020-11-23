@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import FavoriteCard from "./FavoriteCard.js";
 import MatchFlatmate from "./MatchFlatmate.js";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";
 
@@ -25,13 +26,13 @@ function DashboardHunter(props) {
         <FavoriteCard
           title="Favorite flats"
           buttonTitle="Check your flats"
-          link="/"
+          link="/flats/favorites"
           image=""
         />
         <FavoriteCard
           title="Favorite people"
           buttonTitle="Check your future flatmates"
-          link="/"
+          link="/users/favorites"
           image=""
         />
       </section>
@@ -40,7 +41,7 @@ function DashboardHunter(props) {
           return <MatchFlatmate key={index} {...element}/>  
       })}  
 
-      <button>See more profiles!</button>
+      <Link to="/flatmates"><button>See more profiles!</button></Link>
       </section>
     </>
   );
