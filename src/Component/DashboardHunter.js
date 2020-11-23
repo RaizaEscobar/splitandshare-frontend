@@ -7,9 +7,11 @@ function DashboardHunter() {
     const [suggestedUsers, setSuggestedUsers] = useState([]);
 
     useEffect(()=>{
+      if(suggestedUsers.length===0){
         axios.get("http://localhost:4000/users/suggested").then((response) => {
             setSuggestedUsers(response.data);
           });
+      }
     })
      
 
@@ -34,6 +36,8 @@ function DashboardHunter() {
       {suggestedUsers.map((element,index)=>{
           return <MatchFlatmate key={index} {...element}/>  
       })}  
+
+      <button>See more profiles!</button>
       </section>
     </>
   );
