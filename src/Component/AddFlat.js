@@ -1,6 +1,7 @@
-// components/AddMovie.js
 import React, { Component } from "react";
-import {withAuth} from "../lib/AuthProvider"
+import { Route, Redirect } from "react-router-dom";
+import { withAuth } from "../lib/AuthProvider";
+import axios from "axios";
 
 // import the service file since we need it to send (and get) the data to(from) server
 import service from "../api/service";
@@ -27,19 +28,28 @@ class AddFlat extends Component {
     swimmingPool: false,
     storeRoom: false,
     builtinWardrobes: false,
+    redirect: "",
+  };
+
+  id = this.props.match.params.id;
+
+  componentDidMount = () => {
+    if (this.id) {
+      axios
+        .get(`http://localhost:4000/flat/${this.id}`)
+        .then((response) => {
+          this.setState({ ...response.data });
+        });
+    }
   };
 
   handleChange = (e) => {
-    console.log(e)
     const { name, value } = e.target;
     this.setState({ [name]: value });
-   
   };
 
   // this method handles just the file upload
   handleFileUpload = async (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
-
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
@@ -48,7 +58,6 @@ class AddFlat extends Component {
     try {
       const res = await service.handleUpload(uploadData);
 
-      console.log("response is: ", res);
       // after the console.log we can see that response carries 'secure_url' which we can use to update the state
       this.setState({ flatImages: res.secure_url });
     } catch (error) {
@@ -59,34 +68,13 @@ class AddFlat extends Component {
   // this method submits the form
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(this.state)
     try {
-      const res = await service.saveNewFlat(this.state/* , this.props.user._id */);
-      console.log("added: ", res);
-      this.setState({
-        title: "",
-        description: "",
-        flatImages: "",
-        price: 0,
-        contact: "",
-        rooms: 0,
-        restrooms: 0,
-        neighborhood: "",
-        airconditioner: false,
-        elevator: false,
-        balcony: false,
-        parking: false,
-        address: "",
-        centralHeating: false,
-        squareMeters: 0,
-        furnished: false,
-        terrace: false,
-        swimmingPool: false,
-        storeRoom: false,
-        builtinWardrobes: false,
-      });
-      service.getFlats()
-      // here you would redirect to some other page
+      if (this.id) {
+        await service.updateFlat(this.id, this.state);
+      } else {
+        const res = await service.saveNewFlat(this.state);
+      }
+      this.setState({ redirect: `/flat/${this.id}` });
     } catch (error) {
       console.log("Error while adding the flat: ", error);
     }
@@ -95,6 +83,7 @@ class AddFlat extends Component {
   render() {
     return (
       <div>
+        {this.state.redirect && <Redirect to={this.state.redirect} />}
         <h2>New Flat</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label>Name</label>
@@ -111,7 +100,7 @@ class AddFlat extends Component {
             value={this.state.description}
             onChange={(e) => this.handleChange(e)}
           />
-           <label>Price € </label>
+          <label>Price € </label>
           <input
             type="number"
             name="price"
@@ -125,32 +114,32 @@ class AddFlat extends Component {
             value={this.state.contact}
             onChange={(e) => this.handleChange(e)}
           />
-           <label>Rooms</label>
+          <label>Rooms</label>
           <input
             type="number"
             name="rooms"
             value={this.state.rooms}
             onChange={(e) => this.handleChange(e)}
           />
-           <label>Bathrooms</label>
+          <label>Bathrooms</label>
           <input
             type="number"
             name="restrooms"
             value={this.state.restrooms}
             onChange={(e) => this.handleChange(e)}
           />
-           <label>Neighborhood</label>
+          <label>Neighborhood</label>
           <input
             type="text"
             name="neighborhood"
             value={this.state.neighborhood}
             onChange={(e) => this.handleChange(e)}
           />
-         <label>Airconditioner</label>
-        <select name="airconditioner" onChange={(e) => this.handleChange(e)}>
-          <option value={false}>No</option>
-          <option value={true}>Yes</option>
-        </select> 
+          <label>Airconditioner</label>
+          <select name="airconditioner" onChange={(e) => this.handleChange(e)}>
+            <option value={false}>No</option>
+            <option value={true}>Yes</option>
+          </select>
           <label>Address</label>
           <input
             type="text"
@@ -158,7 +147,7 @@ class AddFlat extends Component {
             value={this.state.address}
             onChange={(e) => this.handleChange(e)}
           />
-           <label>Square Meters:</label>
+          <label>Square Meters:</label>
           <input
             type="text"
             name="squareMeters"
@@ -166,9 +155,8 @@ class AddFlat extends Component {
             onChange={(e) => this.handleChange(e)}
           />
 
-
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          <button type="submit">Save new flat</button>
+          <button type="submit">Save</button>
         </form>
       </div>
     );
