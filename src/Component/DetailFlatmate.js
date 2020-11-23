@@ -13,7 +13,7 @@ function DetailFlatmate(props) {
         setFlatmate(response.data);
       });
     }
-  });
+  }); 
   return (
     <div>
       <div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function MatchFlatmate(props) {
     return (
-        <Link>
+        <Link to={`/profile/${props._id}`}>
             <div>
                 <img src={props.image} alt="Profile"></img>
             </div>
@@ -15,7 +15,7 @@ function MatchFlatmate(props) {
                     <li>{props.maxBudget}</li>
                 </ul>
             </div>
-            <button>See more details!</button>
+            
             
         </Link>
     )

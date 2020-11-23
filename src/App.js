@@ -14,6 +14,7 @@ import DashboardHunter from './Component/DashboardHunter.js'
 import DetailFlatmate from './Component/DetailFlatmate';
 import DashboardOwner from './Component/DashboardOwner.js'
 import FlatDetails from './Component/FlatDetails.js'
+import FlatmatesList from './Component/FlatmatesList';
 import AddFlat from './Component/AddFlat';
 
 
@@ -37,7 +38,7 @@ let pages=[{
   link: 'flat'
 },
 { page:'find flatmate',
-  link: 'flatmate'
+  link: 'flatmates'
 },
 { page:'messages',
   link: 'messages'
@@ -60,6 +61,7 @@ let pages=[{
      <PrivateRoute path="/flat/:id" component={FlatDetails} />
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
       <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
+      <Route exact path="/flatmates" component={FlatmatesList} />
       </Switch>
     </div>
     </AuthProvider>   
