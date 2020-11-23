@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";	
 
 class Signup extends Component {
-  state = { email: "", password: "" };
+  state = { email: "", password: "", userType: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
-    console.log('Signup -> form submit', { email, password });
+    const { email, password, userType  } = this.state;
+    console.log('Signup -> form submit', { email, password, userType });
 
-    this.props.signup({ email, password });
+    this.props.signup({ email, password, userType });
   };
 
   handleChange = event => {
@@ -19,7 +19,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, userType } = this.state;
     console.log(this.props)
     return (
       <div>
@@ -32,6 +32,12 @@ class Signup extends Component {
 
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={this.handleChange} />
+
+          <label>Are you looking for a flat or are you a flat owner?</label>  
+          <select value={userType} onChange={this.handleChange} >
+                  <option value="Flat Hunter">Flat Hunter</option>
+                  <option value="Flat Owner">Flat Owner</option>
+          </select>
 
           <input type="submit" value="Signup" />
         </form>

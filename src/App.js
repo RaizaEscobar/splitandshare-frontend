@@ -14,6 +14,7 @@ import DashboardHunter from './Component/DashboardHunter.js'
 import DetailFlatmate from './Component/DetailFlatmate';
 import DashboardOwner from './Component/DashboardOwner.js'
 import FlatDetails from './Component/FlatDetails.js'
+import AddFlat from './Component/AddFlat';
 
 
 let styles = {
@@ -57,6 +58,7 @@ let pages=[{
      <Route exact path="/" component={DashboardHunter}/>
      <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
      <PrivateRoute path="/flat/:id" component={FlatDetails} />
+     <PrivateRoute path="/addMyFlat" component={AddFlat} />
       <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
       </Switch>
     </div>
