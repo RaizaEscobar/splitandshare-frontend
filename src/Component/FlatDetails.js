@@ -43,7 +43,6 @@ function FlatDetails(props) {
           <li>Central Heating:{flat.centralHeating}</li>
         </ul>
       </div>
-      <button onClick={}
     </div>
   );
 }
