@@ -18,7 +18,7 @@ import AddFlat from './Component/AddFlat.js';
 import Flatlist from './Component/Flatlist.js'
 import FavoritesUsers from './Component/FavoritesUsers.js'
 import FavoritesFlats from './Component/FavoritesFlats.js'
-
+import EditProfile from './Component/EditProfile'
 
 let styles = {
   fontFamily: 'sans-serif',
@@ -66,6 +66,7 @@ let pages=[{
      <Route exact path="/flats/favorites" component={FavoritesFlats}/>
      <Route exact path="/users/favorites" component={FavoritesUsers}/>
       <Route exact path="/user/:id" component={DetailFlatmate}/>
+     <PrivateRoute path="/improveMyProfile" component={EditProfile}/>
       <Route exact path="/flatmates" component={FlatmatesList} />
       </Switch>
     </div>
