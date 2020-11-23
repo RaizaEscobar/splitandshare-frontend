@@ -17,7 +17,7 @@ function FlatDetails(props) {
   return (
     <div>
       <div>
-        <img src={flat.flatImages[0]} alt="Flat"></img>
+        <img src={flat.flatImages[0]} alt="Flat" width="500" height="600"></img>
       </div>
       <div>
         <p>{flat.title} </p>

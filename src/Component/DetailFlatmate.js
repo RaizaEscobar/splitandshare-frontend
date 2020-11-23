@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ButtonCard from "./ButtonCard";
 
 function DetailFlatmate(props) {
   const [flatmate, setFlatmate] = useState({});
@@ -17,7 +18,7 @@ function DetailFlatmate(props) {
   return (
     <div>
       <div>
-        <img src={flatmate.image} alt="Profile"></img>
+        <img src={flatmate.image} alt="Profile" width="250" height="300"></img>
       </div>
       <div>
         <p> Hi, I am {flatmate.username} </p>
@@ -30,8 +31,8 @@ function DetailFlatmate(props) {
           <li>Studying:{flatmate.isStudying}</li>
           <li>Working:{flatmate.isWorking}</li>
         </ul>
-        <div>
-          <p> I am looking for:</p>
+        {/* <div> */}
+        {/*   <p> I am looking for:</p>
           <ul>
           <li>Gender: {flatmate.searchingFor.gender}</li>
           <li>Max number of flatmates: {flatmate.searchingFor.Flatmates}</li>
@@ -40,7 +41,10 @@ function DetailFlatmate(props) {
           <li>Age: Between{flatmate.searchingFor.minAge} and {flatmate.searchingFor.maxAge}</li>
           
           </ul>
-        </div>
+        </div>  */}
+        <ButtonCard buttonTitle="My Favorite flats" link="/"  />
+        <ButtonCard buttonTitle="Edit my profile" link="/improveMyProfile"  />
+        
       </div>
     </div>
   );

@@ -2,23 +2,26 @@ import React, {useState, useEffect} from "react";
 import FavoriteCard from "./FavoriteCard.js";
 import MatchFlatmate from "./MatchFlatmate.js";
 import axios from "axios";
+import { withAuth } from "../lib/AuthProvider";
 
-function DashboardHunter() {
+function DashboardHunter(props) {
     const [suggestedUsers, setSuggestedUsers] = useState([]);
 
     useEffect(()=>{
+      console.log(props)
       if(suggestedUsers.length===0){
         axios.get("http://localhost:4000/users/suggested").then((response) => {
             setSuggestedUsers(response.data);
           });
       }
     })
-     
+
+
 
   return (
     <>
       <section>
-        <FavoriteCard link="/" image="" />
+         <FavoriteCard link= {`/flatmate/${props.user._id}`} title="algoo" image={props.user.image} />
         <FavoriteCard
           title="Favorite flats"
           buttonTitle="Check your flats"
@@ -43,4 +46,4 @@ function DashboardHunter() {
   );
 }
 
-export default DashboardHunter;
+export default withAuth(DashboardHunter);
