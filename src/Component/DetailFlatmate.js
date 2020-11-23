@@ -5,7 +5,6 @@ function DetailFlatmate(props) {
   const [flatmate, setFlatmate] = useState({});
 
   useEffect(() => {
-    
     if(Object.keys(flatmate).length===0){
     axios
       .get(`http://localhost:4000/profile/${props.match.params.id}`)
@@ -14,6 +13,7 @@ function DetailFlatmate(props) {
       });
     }
   }); 
+
   return (
     <div>
       <div>
@@ -33,12 +33,12 @@ function DetailFlatmate(props) {
         <div>
           <p> I am looking for:</p>
           <ul>
-          <li>Gender: {flatmate.searchingFor.gender}</li>
-          <li>Max number of flatmates: {flatmate.searchingFor.Flatmates}</li>
-          <li>pets: {flatmate.searchingFor.pets}</li>
-          <li>smoke: {flatmate.searchingFor.smoke}</li>
-          <li>Age: Between{flatmate.searchingFor.minAge} and {flatmate.searchingFor.maxAge}</li>
-          
+          <li>Gender: {flatmate.searchingFor ? flatmate.searchingFor.gender : ""}</li>
+          <li>Max number of flatmates: {flatmate.searchingFor ? flatmate.searchingFor.Flatmates : ""}</li>
+          <li>Location: {flatmate.searchingFor ? flatmate.searchingFor.location : ""}</li>
+          <li>pets: {flatmate.searchingFor ? flatmate.searchingFor.pets : ""}</li>
+          <li>smoke: {flatmate.searchingFor ? flatmate.searchingFor.smoke : ""}</li>
+          <li>Age: Between{flatmate.searchingFor ? flatmate.searchingFor.minAge : ""} and {flatmate.searchingFor ? flatmate.searchingFor.maxAge : ""}</li>
           </ul>
         </div>
       </div>

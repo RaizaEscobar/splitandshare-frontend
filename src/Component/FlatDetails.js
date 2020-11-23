@@ -5,7 +5,6 @@ function FlatDetails(props) {
   const [flat, setFlat] = useState({});
 
   useEffect(() => {
-    
     if(Object.keys(flat).length===0){
     axios
       .get(`http://localhost:4000/flat/${props.match.params.id}`)
@@ -14,10 +13,11 @@ function FlatDetails(props) {
       });
     }
   });
+
   return (
     <div>
       <div>
-        <img src={flat.flatImages[0]} alt="Flat"></img>
+        <img src={flat.flatImages ? flat.flatImages[0] : ""} alt="Flat"></img>
       </div>
       <div>
         <p>{flat.title} </p>
@@ -43,6 +43,7 @@ function FlatDetails(props) {
           <li>Central Heating:{flat.centralHeating}</li>
         </ul>
       </div>
+      <button onClick={}
     </div>
   );
 }
