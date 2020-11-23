@@ -20,6 +20,7 @@ class Signup extends Component {
 
   render() {
     const { email, password } = this.state;
+    console.log(this.props)
     return (
       <div>
         <h1>Sign Up</h1>
@@ -34,7 +35,7 @@ class Signup extends Component {
 
           <input type="submit" value="Signup" />
         </form>
-        
+        {this.props.message}
         <p>Already have account?</p>
         <Link to={"/login"}> Login</Link>
 

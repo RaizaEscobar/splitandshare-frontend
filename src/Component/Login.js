@@ -18,7 +18,7 @@ class Login extends Component {
 
   render() {
     const { email, password } = this.state;
-
+    console.log(this.props)
     return (
       <div>
         <h1>Login</h1>
@@ -33,7 +33,9 @@ class Login extends Component {
 
           <input type="submit" value="Login" />
         </form>
+        {this.props.message}
       </div>
+      
     );
   }
 }

@@ -12,7 +12,8 @@ import Private from './Component/Private.js';
 import AuthProvider from "./lib/AuthProvider";
 import DashboardHunter from './Component/DashboardHunter.js'
 import DetailFlatmate from './Component/DetailFlatmate';
-
+import DashboardOwner from './Component/DashboardOwner.js'
+import FlatDetails from './Component/FlatDetails.js'
 
 
 let styles = {
@@ -54,6 +55,8 @@ let pages=[{
       <AnonRoute path="/login" component={Login} />	
       <PrivateRoute path="/private" component={Private} />
      <Route exact path="/" component={DashboardHunter}/>
+     <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
+     <PrivateRoute path="/flat/:id" component={FlatDetails} />
       <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
       </Switch>
     </div>
