@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from "./Component/Navbar.js"
 import 'bulma/css/bulma.css';
@@ -9,14 +8,16 @@ import { Route, Switch } from 'react-router-dom';
 import AnonRoute from './Component/AnonRoute.js';
 import PrivateRoute from './Component/PrivateRoute.js';
 import Private from './Component/Private.js';
-import AuthProvider from "./lib/AuthProvider";
+import AuthProvider from "./lib/AuthProvider.js";
 import DashboardHunter from './Component/DashboardHunter.js'
 import DetailFlatmate from './Component/DetailFlatmate';
 import DashboardOwner from './Component/DashboardOwner.js'
 import FlatDetails from './Component/FlatDetails.js'
-import FlatmatesList from './Component/FlatmatesList';
-import AddFlat from './Component/AddFlat';
-import Flatlist from './Component/Flatlist'
+import FlatmatesList from './Component/FlatmatesList.js';
+import AddFlat from './Component/AddFlat.js';
+import Flatlist from './Component/Flatlist.js'
+import FavoritesUsers from './Component/FavoritesUsers.js'
+import FavoritesFlats from './Component/FavoritesFlats.js'
 import EditProfile from './Component/EditProfile'
 
 let styles = {
@@ -24,7 +25,7 @@ let styles = {
   textAlign: 'center',
   margin: '100px'
 };
-function App() {
+function App(props) {
 let pages=[{
   page:'signup',
   link:'signup' 
@@ -33,7 +34,7 @@ let pages=[{
   link: 'login'
 },
 { page:'my profile',
-  link: 'profile'
+  link: `user`
 },
 { page:'find flat',
   link: 'flats'
@@ -61,9 +62,11 @@ let pages=[{
      <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
      <PrivateRoute path="/flat/:id" component={FlatDetails} />
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
-     <PrivateRoute path="/flats" component={Flatlist}/>
+     <PrivateRoute exact path="/flats" component={Flatlist}/>
+     <Route exact path="/flats/favorites" component={FavoritesFlats}/>
+     <Route exact path="/users/favorites" component={FavoritesUsers}/>
+      <Route exact path="/user/:id" component={DetailFlatmate}/>
      <PrivateRoute path="/improveMyProfile" component={EditProfile}/>
-      <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
       <Route exact path="/flatmates" component={FlatmatesList} />
       </Switch>
     </div>
