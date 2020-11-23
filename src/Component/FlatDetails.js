@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ButtonCard from "./ButtonCard";
 
 function FlatDetails(props) {
   const [flat, setFlat] = useState({});
@@ -43,6 +44,7 @@ function FlatDetails(props) {
           <li>Central Heating:{flat.centralHeating}</li>
         </ul>
       </div>
+      <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/>
     </div>
   );
 }

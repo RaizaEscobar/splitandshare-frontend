@@ -10,8 +10,6 @@ class Service {
     });
   }
   handleUpload = async (theFile) => {
-    console.log("file in service: ", theFile);
-
     try {
       const res = await this.service.post("/upload", theFile);
       return res.data;
@@ -20,9 +18,7 @@ class Service {
     }
   };
 
-  saveNewFlat = async (newFlat, id) => {
-    console.log("new thing is: ", newFlat);
-
+  saveNewFlat = async (newFlat, id) => {    
     try {
       const res = await this.service.post("/addMyFlat", newFlat, id);
       return res.data;
@@ -33,12 +29,21 @@ class Service {
 
   getFlats = async () => {
       try {
-          const res = await this.service.get("/flats")
-          console.log(res.data)
+          const res = await this.service.get("/flats")          
           return res.data
       } catch (error) {
         console.log(error);
       }
+  }
+
+  updateFlat = async(id, flat) => {
+    try {
+      const res = await this.service.post(`/myListings/edit/${id}`,flat);
+      return res.data;
+    }
+    catch(error){
+      console.log(error);
+    }
   }
 }
 
