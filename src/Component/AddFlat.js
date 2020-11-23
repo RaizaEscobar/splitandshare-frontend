@@ -30,8 +30,10 @@ class AddFlat extends Component {
   };
 
   handleChange = (e) => {
+    console.log(e)
     const { name, value } = e.target;
     this.setState({ [name]: value });
+   
   };
 
   // this method handles just the file upload
@@ -57,13 +59,14 @@ class AddFlat extends Component {
   // this method submits the form
   handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(this.state)
     try {
-      const res = await service.saveNewFlat(this.state, this.props.user._id);
+      const res = await service.saveNewFlat(this.state/* , this.props.user._id */);
       console.log("added: ", res);
       this.setState({
         title: "",
         description: "",
+        flatImages: "",
         price: 0,
         contact: "",
         rooms: 0,
@@ -108,6 +111,62 @@ class AddFlat extends Component {
             value={this.state.description}
             onChange={(e) => this.handleChange(e)}
           />
+           <label>Price € </label>
+          <input
+            type="number"
+            name="price"
+            value={this.state.price}
+            onChange={(e) => this.handleChange(e)}
+          />
+          <label>Contact</label>
+          <input
+            type="text"
+            name="contact"
+            value={this.state.contact}
+            onChange={(e) => this.handleChange(e)}
+          />
+           <label>Rooms</label>
+          <input
+            type="number"
+            name="rooms"
+            value={this.state.rooms}
+            onChange={(e) => this.handleChange(e)}
+          />
+           <label>Bathrooms</label>
+          <input
+            type="number"
+            name="restrooms"
+            value={this.state.restrooms}
+            onChange={(e) => this.handleChange(e)}
+          />
+           <label>Neighborhood</label>
+          <input
+            type="text"
+            name="neighborhood"
+            value={this.state.neighborhood}
+            onChange={(e) => this.handleChange(e)}
+          />
+         <label>Airconditioner</label>
+        <select name="airconditioner" onChange={(e) => this.handleChange(e)}>
+          <option value={false}>No</option>
+          <option value={true}>Yes</option>
+        </select> 
+          <label>Address</label>
+          <input
+            type="text"
+            name="address"
+            value={this.state.address}
+            onChange={(e) => this.handleChange(e)}
+          />
+           <label>Square Meters:</label>
+          <input
+            type="text"
+            name="squareMeters"
+            value={this.state.squareMeters}
+            onChange={(e) => this.handleChange(e)}
+          />
+
+
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
           <button type="submit">Save new flat</button>
         </form>

@@ -34,7 +34,7 @@ class Signup extends Component {
           <input type="password" name="password" value={password} onChange={this.handleChange} />
 
           <label>Are you looking for a flat or are you a flat owner?</label>  
-          <select value={userType} onChange={this.handleChange} >
+          <select name="userType" value={userType} onChange={this.handleChange} >
                   <option value="Flat Hunter">Flat Hunter</option>
                   <option value="Flat Owner">Flat Owner</option>
           </select>

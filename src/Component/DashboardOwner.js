@@ -9,7 +9,7 @@ import FavoriteCard from "./FavoriteCard.js";
         <FavoriteCard
           title=""
           buttonTitle="Add my flat"
-          link="/"
+          link="/addMyFlat"
           image=""
         />
         <FavoriteCard

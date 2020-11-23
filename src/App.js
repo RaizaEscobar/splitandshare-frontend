@@ -16,7 +16,7 @@ import DashboardOwner from './Component/DashboardOwner.js'
 import FlatDetails from './Component/FlatDetails.js'
 import FlatmatesList from './Component/FlatmatesList';
 import AddFlat from './Component/AddFlat';
-
+import Flatlist from './Component/Flatlist'
 
 let styles = {
   fontFamily: 'sans-serif',
@@ -35,7 +35,7 @@ let pages=[{
   link: 'profile'
 },
 { page:'find flat',
-  link: 'flat'
+  link: 'flats'
 },
 { page:'find flatmate',
   link: 'flatmates'
@@ -60,6 +60,7 @@ let pages=[{
      <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
      <PrivateRoute path="/flat/:id" component={FlatDetails} />
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
+     <PrivateRoute path="/flats" component={Flatlist}/>
       <Route exact path="/flatmate/:id" component={DetailFlatmate}/>
       <Route exact path="/flatmates" component={FlatmatesList} />
       </Switch>
