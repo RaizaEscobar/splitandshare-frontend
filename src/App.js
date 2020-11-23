@@ -57,7 +57,7 @@ let pages=[{
       <AnonRoute path="/signup" component={Signup} />
       <AnonRoute path="/login" component={Login} />	
       <PrivateRoute path="/private" component={Private} />
-     <Route exact path="/" component={DashboardHunter}/>
+     <PrivateRoute exact path="/" component={DashboardHunter}/>
      <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
      <PrivateRoute path="/flat/:id" component={FlatDetails} />
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
