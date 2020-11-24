@@ -16,9 +16,13 @@ function FavoritesUsers(props) {
     })
     return (
         <div>
-            {favoritesUsers.map((element, index)=>{
-                return <MatchFlatmate key={index} {...element}></MatchFlatmate>
+         <div className = "favoriteUsers-container">
+           <div className="check"> 
+            {favoritesUsers.map((element, index)=>{ 
+                return <div> <MatchFlatmate key={index} {...element}></MatchFlatmate> </div>
             })}
+          </div>
+        </div>  
         </div>
     )
 }

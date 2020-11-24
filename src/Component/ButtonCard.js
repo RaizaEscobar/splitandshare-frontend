@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ButtonCard(props) {
     return (
         <Link to={props.link}>
-            {props.buttonTitle &&<button>{props.buttonTitle}</button>}
+            {props.buttonTitle &&<button  className="btnB">{props.buttonTitle}</button>}
         </Link>
     )
 }
