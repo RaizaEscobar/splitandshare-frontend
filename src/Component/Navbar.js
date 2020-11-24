@@ -2,26 +2,36 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withAuth } from "../lib/AuthProvider";
-import logo from "../images/logo.png"
+import logo from "../images/logo.png";
+import "./Navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUser,
+  faCalculator,
+  faSignOutAlt,
+  faUserFriends,
+  faHouseUser,
+  faUserPlus,
+  faSignInAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 function NavbarItem(props) {
   return (
-    <Link className="navbar-item is-capitalized" to={`/${props.link}`}>
-      {props.page}
-      
-    </Link>
+    <li class="nav-item">
+      <Link to={props.link} className="nav-link text-dark font-italic bg-light">
+        <FontAwesomeIcon icon={props.icon} style={{ marginRight: "10px" }} />
+        {props.title}
+      </Link>
+    </li>
   );
 }
-function NavbarBurger(props) {
+
+function NavbarCategory(props) {
   return (
-    <button
-      onClick={props.toggleMenu}
-      className={`button navbar-burger ${props.active ? "is-active" : ""}`}
-    >
-      <span />
-      <span />
-      <span />
-    </button>
+    <p className="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
+      {props.title}
+    </p>
   );
 }
 
@@ -35,28 +45,60 @@ class Navbar extends Component {
       activeMenu: !this.state.activeMenu,
     });
   };
+
   render() {
-    const { email, logout, isLoggedin } = this.props;
-    let navbarItems = this.props.pages.map((page) => (
-      <NavbarItem page={page.page} key={page.page} link={page.link} />
-    ));
     return (
-      <nav className={`navbar is-fixed-top`}>
-        <div className="navbar-brand">
-          <Link to="/"><img src={logo} alt="logo" style={{height:"50px"}}/></Link>
-          <NavbarBurger
-            active={this.state.activeMenu}
-            toggleMenu={this.toggleMenu}
-          />
-        </div>
-        <div
-          className={`navbar-menu ${this.state.activeMenu ? "is-active" : ""}`}
-        >
-          <div className="navbar-start">
-            {navbarItems}
-            <button onClick={logout} >Logout</button>
+      <nav
+        className={`vertical-nav bg-white ${
+          this.props.isActive ? "active" : ""
+        }`}
+        id="sidebar"
+      >
+        <div class="py-4 px-3 mb-4 bg-light">
+          <div class="media d-flex align-items-center">
+            <div class="media-body">
+              {this.props.user && this.props.user.username !== "" && (
+                <h4 class="m-0">{`Hola, ${this.props.user.username}`}</h4>
+              )}
+            </div>
           </div>
         </div>
+        <NavbarCategory title="MAIN" />
+        <ul class="nav flex-column bg-white mb-0">
+          <NavbarItem title="Home" link="/" icon={faHome} />
+          {this.props.user && (
+            <NavbarItem
+              title="Profile"
+              link={`/user/${this.props.user._id}`}
+              icon={faUser}
+            />
+          )}
+          <NavbarItem
+            title="Calculator"
+            link="/calculator"
+            icon={faCalculator}
+          />
+          {this.props.user && (
+            <div onClick={this.props.logout} className="nav-link text-dark font-italic bg-light link">
+              <FontAwesomeIcon
+                icon={faSignOutAlt}
+                style={{ marginRight: "10px" }}
+              />
+              Log out
+            </div>
+          )}
+          {!this.props.user && <NavbarItem title="Log in" link="/login" icon={faSignInAlt}/>}
+          {!this.props.user && <NavbarItem title="Sign up" link="/signup" icon={faUserPlus} />}
+        </ul>
+        <NavbarCategory title="SEARCH" />
+        <ul class="nav flex-column bg-white mb-0">
+          <NavbarItem
+            title="Find Flatmates"
+            link="/flatmates"
+            icon={faUserFriends}
+          />
+          <NavbarItem title="Find Flats" link="/flats" icon={faHouseUser} />
+        </ul>
       </nav>
     );
   }
