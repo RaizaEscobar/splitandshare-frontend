@@ -6,7 +6,7 @@ function MatchFlatmate(props) {
       <div className = "matchFlatmate-container">
       
     <Link to={`/user/${props._id}`} style={{ textDecoration: 'none' }} >
-      <div className="col-md-4">
+     
         <div className="profile-card-4 text-center">
           <img
             src={props.image}
@@ -39,7 +39,7 @@ function MatchFlatmate(props) {
             </div>
           </div>
         </div>
-      </div>
+     
     </Link>
   
     </div>

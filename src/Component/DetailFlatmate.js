@@ -4,14 +4,9 @@ import ButtonCard from "./ButtonCard";
 import { withAuth } from "../lib/AuthProvider";
 import service from "../api/service";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBirthdayCake } from '@fortawesome/free-solid-svg-icons'
-import { faSmoking} from '@fortawesome/free-solid-svg-icons'
-import { faPaw} from '@fortawesome/free-solid-svg-icons'
-import { faBriefcase} from '@fortawesome/free-solid-svg-icons'
-import { faGraduationCap} from '@fortawesome/free-solid-svg-icons'
-import { faVenusMars} from '@fortawesome/free-solid-svg-icons'
-import { faTransgenderAlt} from '@fortawesome/free-solid-svg-icons'
-import { faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import { faBirthdayCake, faSmoking, faPaw, faMapMarkerAlt, faBriefcase, faGraduationCap, faTransgenderAlt, faVenusMars } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function DetailFlatmate(props) {
   const [flatmate, setFlatmate] = useState({});
@@ -69,7 +64,7 @@ function DetailFlatmate(props) {
           </ul>
         </div>  
        
-       { props.user._id === props.match.params.id ? <ButtonCard  buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+       { props.user._id === props.match.params.id ? <ButtonCard  buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button  className="btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
 
        
        </figcaption> 
