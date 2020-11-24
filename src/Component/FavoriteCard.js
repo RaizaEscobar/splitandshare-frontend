@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./FavoriteCard.css"
 
 function FavoriteCard(props) {
   return (
-      <section>
-          <Link to={props.link}>
-          <div>
-            <img src={props.image} width="250" height="300"/>
-              {props.title && <h2>{props.title}</h2>}
-              {props.buttonTitle &&<button>{props.buttonTitle}</button>}
+    <>
+      <Link to={props.link}>
+        <div className="card">
+          <div class="icon">
+          <FontAwesomeIcon icon={props.icon} className="material-icons md-36"/>
           </div>
-          </Link>
-      </section>
+          <p class="title">{props.title}</p>
+          <p class="text">{props.buttonTitle}</p>
+        </div>
+      </Link>
+    </>
   );
 }
 

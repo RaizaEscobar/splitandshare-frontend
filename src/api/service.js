@@ -28,6 +28,15 @@ class Service {
     }
   }
 
+  suggestedUsers = async() => {
+    try {      
+      const res = await this.service.get(`/users/suggested/`);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   myFavoritesUsers = async() => {
     try {      
       const res = await this.service.get("/users/favorites");
