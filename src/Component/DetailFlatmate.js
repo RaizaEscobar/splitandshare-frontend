@@ -10,20 +10,19 @@ function DetailFlatmate(props) {
 
   useEffect(() => {
     if(Object.keys(flatmate).length===0){
-    service.getFlat(props.match.params.id)
-    .then((response) => {
+    service.getFlatmate(props.match.params.id)
+    .then((response) => {      
       setFlatmate(response)
-    } )
-      axios.get(`http://localhost:4000/isFavorite/${props.match.params.id}`)
-      .then((response) => {
-        setIsFavorite(response.data)
-      }
-      )
+    })
+    service.isFavoriteUser(props.match.params.id)
+    .then((response) => {      
+      setIsFavorite(response)
+    })
     }
   }); 
 
   const handleFavorite = () => {
-    axios.post(`http://localhost:4000/idealFlatmate/${props.match.params.id}`)
+    service.setFavoriteUser(props.match.params.id)
     .then(() => {setIsFavorite(!isFavorite)}) 
   }
 

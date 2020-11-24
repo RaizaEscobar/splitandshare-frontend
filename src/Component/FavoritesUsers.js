@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import { withAuth } from "../lib/AuthProvider";		
 import MatchFlatmate from "./MatchFlatmate";
+import service from "../api/service";
 
 
 function FavoritesUsers(props) {
@@ -9,8 +9,8 @@ function FavoritesUsers(props) {
 
     useEffect(()=>{
       if(favoritesUsers.length===0){
-        axios.get("http://localhost:4000/users/favorites", {params: {"id": props.user._id}}).then((response) => {
-            setFavoritesUsers(response.data);
+        service.myFavoritesUsers().then((response) => {
+            setFavoritesUsers(response);
           });
       }
     })
