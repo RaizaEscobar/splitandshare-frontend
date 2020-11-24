@@ -49,6 +49,8 @@ class FlatmatesList extends Component {
   render() {
     return (
       <>
+      <div className = "flatmatesList">
+      <div className = "stickTheForm">
         <form onSubmit={this.handleSubmit}>
           <label>Zone</label>
           <input type="text" />
@@ -85,21 +87,23 @@ class FlatmatesList extends Component {
             <option value="true">Yes</option>
           </select>
 
-          <button>Search</button>
+          <button className="btnB"  >Search</button>
         </form>
+        </div>
         <section>
-        <div>
+          <div>
          <div className = "favoriteUsers-container">
          <div className="container">
 	<div className="row">
           {this.state.flatmates.map((element, index) => {
             return <MatchFlatmate key={index} {...element} />;
           })}
-          </div> 
-        </div> 
-        </div>  
-        </div>
+          </div>
+          </div>
+          </div>
+          </div>
         </section>
+        </div>
       </>
     );
   }

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { withAuth } from "../lib/AuthProvider";		
 import MatchFlatmate from "./MatchFlatmate";
 import service from "../api/service";
-import { Container, Row, Col } from 'react-bootstrap';
+
 
 
 function FavoritesUsers(props) {

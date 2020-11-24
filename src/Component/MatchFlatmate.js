@@ -8,6 +8,7 @@ function MatchFlatmate(props) {
     <Link to={`/user/${props._id}`} style={{ textDecoration: 'none' }} >
      
         <div className="profile-card-4 text-center">
+        <div className="resizeCard">
           <img
             src={props.image}
             className="img img-responsive"
@@ -15,6 +16,7 @@ function MatchFlatmate(props) {
             width="250"
             height="300"
           ></img>
+          </div>
           <div className="profile-content">
             <div className="profile-name"> {props.username} </div>
 
