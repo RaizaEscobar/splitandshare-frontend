@@ -29,9 +29,10 @@ class AddFlat extends Component {
     storeRoom: false,
     builtinWardrobes: false,
     redirect: "",
+    id : this.props.match.params.id
   };
 
-  id = this.props.match.params.id;
+  
 
   componentDidMount = () => {
     if (this.id) {
@@ -73,6 +74,7 @@ class AddFlat extends Component {
         await service.updateFlat(this.id, this.state);
       } else {
         const res = await service.saveNewFlat(this.state);
+        this.setState({id: res._id})
       }
       this.setState({ redirect: `/flat/${this.id}` });
     } catch (error) {

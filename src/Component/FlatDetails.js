@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ButtonCard from "./ButtonCard";
+import { withAuth } from "../lib/AuthProvider";
+import service from "../api/service";
 
 function FlatDetails(props) {
   const [flat, setFlat] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     if(Object.keys(flat).length===0){
-    axios
-      .get(`http://localhost:4000/flat/${props.match.params.id}`)
-      .then((response) => {
-        setFlat(response.data);
-      });
-    }
+      service.getFlat(props.match.params.id)
+      .then((response) => {        
+        setFlat(response)
+      })
+      service.isFavoriteFlat(props.match.params.id)
+      .then((response) => {        
+        setIsFavorite(response)
+      })
+      }
   });
+
+  const handleFavorite = () => {
+    service.setFavoriteFlat(props.match.params.id)
+    .then(() => {setIsFavorite(!isFavorite)})    
+  }
 
   return (
     <div>
@@ -44,9 +55,9 @@ function FlatDetails(props) {
           <li>Central Heating:{flat.centralHeating}</li>
         </ul>
       </div>
-      <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/>
+      {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/> :  <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
     </div>
   );
 }
 
-export default FlatDetails;
+export default withAuth(FlatDetails);
