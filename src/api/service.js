@@ -85,6 +85,7 @@ class Service {
   handleUpload = async (theFile) => {
     try {
       const res = await this.service.post("/upload", theFile);
+      console.log(res)
       return res.data;
     } catch (error) {
       console.log(error);

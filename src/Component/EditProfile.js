@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
 import axios from "axios";
+import service from "../api/service"
 
 export class EditProfile extends Component {
     constructor(props) {
@@ -21,9 +22,9 @@ export class EditProfile extends Component {
         console.log("The file to be uploaded is: ", event.target.files[0]);
     
         const uploadData = new FormData();
-        uploadData.append("image", event.target.files[0]);
+        uploadData.append("imageUrl", event.target.files[0]);
     
-        this.props
+        service
           .handleUpload(uploadData)
           .then((response) => {
             console.log("response is: ", response);

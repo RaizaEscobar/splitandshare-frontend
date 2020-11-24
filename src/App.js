@@ -19,12 +19,15 @@ import Flatlist from './Component/Flatlist.js'
 import FavoritesUsers from './Component/FavoritesUsers.js'
 import FavoritesFlats from './Component/FavoritesFlats.js'
 import EditProfile from './Component/EditProfile'
+import MyListings from './Component/MyListings'
 
 let styles = {
   fontFamily: 'sans-serif',
   textAlign: 'center',
   margin: '100px'
 };
+
+
 function App(props) {
 let pages=[{
   page:'signup',
@@ -64,6 +67,7 @@ let pages=[{
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
      <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
      <PrivateRoute exact path="/flats" component={Flatlist}/>
+     <PrivateRoute exact path="/myListings" component={MyListings}/>
      <Route exact path="/flats/favorites" component={FavoritesFlats}/>
      <Route exact path="/users/favorites" component={FavoritesUsers}/>
       <Route exact path="/user/:id" component={DetailFlatmate}/>
