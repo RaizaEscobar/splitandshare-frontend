@@ -35,24 +35,24 @@ function FlatDetails(props) {
         <p>{flat.title} </p>
         <p>{flat.description}</p>
         <ul>
-          <li>Price: {flat.price}</li>
+          <li>Price: {flat.price} €</li>
           <li>Contact:{flat.age}</li>
           <li>Rooms:{flat.rooms}</li>
           <li>Bathrooms:{flat.restrooms}</li>
           <li>Neighborhood:{flat.neighborhood}</li>
-          <li>Airconditioner:{flat.airconditioner}</li>
-          <li>Balcony:{flat.balcony}</li>
-          <li>Elevator:{flat.elevator}</li>
-          <li>Parking:{flat.parking}</li>
-          <li>Address:{flat.address}</li>
-          <li>Square Meters:{flat.squareMeters}</li>
-          <li>Furnished:{flat.furnished}</li>
-          <li>Terrace:{flat.terrace}</li>
-          <li>Swimming Pool:{flat.swimmingPool}</li>
-          <li>Central Heating:{flat.centralHeating}</li>
-          <li>Store Room:{flat.storeRoom}</li>
-          <li>Builtin Wardrobes:{flat.builtinWardrobes}</li>
-          <li>Central Heating:{flat.centralHeating}</li>
+          <li>Airconditioner:{flat.airconditioner  ? "Yes" : "No"}</li>
+          <li>Balcony:{flat.balcony  ? "Yes" : "No"}</li>
+          <li>Elevator:{flat.elevator ? "Yes" : "No"}</li>
+          <li>Parking:{flat.parking  ? "Yes" : "No"}</li>
+          <li>Address:{flat.address ? "Yes" : "No"}</li>
+          <li>Square Meters:{flat.squareMeters ? "Yes" : "No"}</li>
+          <li>Furnished:{flat.furnished ? "Yes" : "No"}</li>
+          <li>Terrace:{flat.terrace ? "Yes" : "No"}</li>
+          <li>Swimming Pool:{flat.swimmingPool ? "Yes" : "No"}</li>
+          <li>Central Heating:{flat.centralHeating ? "Yes" : "No"}</li>
+          <li>Store Room:{flat.storeRoom ? "Yes" : "No"}</li>
+          <li>Builtin Wardrobes:{flat.builtinWardrobes ? "Yes" : "No"}</li>
+          <li>Central Heating:{flat.centralHeating ? "Yes" : "No"}</li>
         </ul>
       </div>
       {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/> :  <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
