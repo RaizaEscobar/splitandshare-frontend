@@ -5,14 +5,9 @@ import { Link } from "react-router-dom";
 import service from "../api/service";
 import { withAuth } from "../lib/AuthProvider";
 import {
-  faHome,
   faUser,
-  faCalculator,
-  faSignOutAlt,
   faUserFriends,
-  faHouseUser,
-  faUserPlus,
-  faSignInAlt
+  faHouseUser
 } from "@fortawesome/free-solid-svg-icons";
 
 function DashboardHunter(props) {
@@ -23,6 +18,7 @@ function DashboardHunter(props) {
     console.log(props);
     if (isLoading) {
       service.suggestedUsers().then((response) => {
+        console.log(response)
         setSuggestedUsers(response);
         setIsLoading(false)
         console.log(response)

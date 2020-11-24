@@ -47,7 +47,7 @@ class Calculator extends Component {
       body.rooms.push(room);
     });
 
-    axios.post("http://localhost:4000/calculate", body).then((response) => {
+    axios.post(`${process.env.REACT_APP_API_URL}/calculate`, body).then((response) => {
       this.setState({
         result: response.data,
       });
@@ -56,7 +56,7 @@ class Calculator extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapperCalculator">
         <div className="container">
           <div className="py-5 text-center">
             <h2>Divide Your Rent Fairly</h2>

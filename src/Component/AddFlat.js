@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
-import axios from "axios";
-
-// import the service file since we need it to send (and get) the data to(from) server
 import service from "../api/service";
 
 class AddFlat extends Component {
@@ -36,10 +33,9 @@ class AddFlat extends Component {
 
   componentDidMount = () => {
     if (this.id) {
-      axios
-        .get(`http://localhost:4000/flat/${this.id}`)
+      service.getFlat(this.id)        
         .then((response) => {
-          this.setState({ ...response.data });
+          this.setState({ ...response });
         });
     }
   };
@@ -70,13 +66,15 @@ class AddFlat extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      let id;
       if (this.id) {
+        id = this.id;
         await service.updateFlat(this.id, this.state);
       } else {
         const res = await service.saveNewFlat(this.state);
-        this.setState({id: res._id})
+        id = res._id
       }
-      this.setState({ redirect: `/flat/${this.id}` });
+      this.setState({ redirect: `/flat/${id}` });
     } catch (error) {
       console.log("Error while adding the flat: ", error);
     }
