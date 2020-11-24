@@ -3,6 +3,10 @@ import axios from "axios";
 import ButtonCard from "./ButtonCard";
 import { withAuth } from "../lib/AuthProvider";
 import service from "../api/service";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBirthdayCake, faSmoking, faPaw, faMapMarkerAlt, faBriefcase, faGraduationCap, faTransgenderAlt, faVenusMars } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function DetailFlatmate(props) {
   const [flatmate, setFlatmate] = useState({});
@@ -27,36 +31,46 @@ function DetailFlatmate(props) {
   }
 
   return (
-    <div>
+    <div className = "detailFlatmate-container">
+    <figure class="snip1515">
       <div>
-        <img src={flatmate.image} alt="Profile" width="250" height="300"></img>
+      <div class="profile-image"> <img src={flatmate.image} alt="Profile" width="250" height="300"></img></div>
       </div>
       <div>
-        <p> Hi, I am {flatmate.username} </p>
+      <figcaption>
+
+        <h3> Hi, I am {flatmate.username} </h3>
+        <h4>{flatmate.age} years old</h4>
         <ul>
-          <li>Gender: {flatmate.gender}</li>
-          <li>Age:{flatmate.age}</li>
-          <li>My Budget:{flatmate.maxBudget}</li>
-          <li>Pets:{flatmate.hasPet}</li>
-          <li>Smoking:{flatmate.isSmoking}</li>
-          <li>Studying:{flatmate.isStudying}</li>
-          <li>Working:{flatmate.isWorking}</li>
+          <li><FontAwesomeIcon icon={faVenusMars} /> <FontAwesomeIcon icon={faTransgenderAlt} />: {flatmate.gender}</li>
+         
+          <li>My Budget: {flatmate.maxBudget} €</li>
+          <br></br>
+          <li><FontAwesomeIcon icon={faGraduationCap} />: {flatmate.isStudying}</li>
+          <li><FontAwesomeIcon icon={faPaw} />:  {flatmate.hasPet}</li>
+          <li><FontAwesomeIcon icon={faSmoking} />:  {flatmate.isSmoking}</li>
+          
+          <li><FontAwesomeIcon icon={faBriefcase} />:{flatmate.isWorking}</li>
         </ul>
          <div> 
-          <p> I am looking for:</p>
+          <p> <b>I am looking for:</b></p>
           <ul>
-          <li>Gender: {flatmate.searchingFor ? flatmate.searchingFor.gender : ""}</li>
           <li>Max number of flatmates: {flatmate.searchingFor ? flatmate.searchingFor.Flatmates : ""}</li>
-          <li>Location: {flatmate.searchingFor ? flatmate.searchingFor.location : ""}</li>
-          <li>pets: {flatmate.searchingFor ? flatmate.searchingFor.pets : ""}</li>
-          <li>smoke: {flatmate.searchingFor ? flatmate.searchingFor.smoke : ""}</li>
-          <li>Age: Between{flatmate.searchingFor ? flatmate.searchingFor.minAge : ""} and {flatmate.searchingFor ? flatmate.searchingFor.maxAge : ""}</li>
+          <li><FontAwesomeIcon icon={faVenusMars} /> <FontAwesomeIcon icon={faTransgenderAlt} />: {flatmate.searchingFor ? flatmate.searchingFor.gender : ""}</li>
+          <li><FontAwesomeIcon icon={faMapMarkerAlt} />: {flatmate.searchingFor ? flatmate.searchingFor.location : ""}</li>
+          <li><FontAwesomeIcon icon={faPaw} /> : {flatmate.searchingFor ? flatmate.searchingFor.pets : ""}</li>
+          <li><FontAwesomeIcon icon={faSmoking} /> : {flatmate.searchingFor ? flatmate.searchingFor.smoke : ""}</li>
+          <li><FontAwesomeIcon icon={faBirthdayCake} />: Between {flatmate.searchingFor ? flatmate.searchingFor.minAge : ""} and {flatmate.searchingFor ? flatmate.searchingFor.maxAge : ""}</li>
           </ul>
         </div>  
        
-       { props.user._id === props.match.params.id ? <ButtonCard buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+       { props.user._id === props.match.params.id ? <ButtonCard  buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button  className="btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+
        
+       </figcaption> 
       </div>
+      
+      </figure>
     </div>
   );
 }

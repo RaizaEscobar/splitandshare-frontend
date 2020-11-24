@@ -22,6 +22,7 @@ import EditProfile from "./Component/EditProfile";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
+import MyListings from './Component/MyListings'
 
 function App(props) {
   const [isActive, setIsActive] = useState(true)
@@ -59,6 +60,7 @@ function App(props) {
           <PrivateRoute path="/addMyFlat" component={AddFlat} />
           <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
           <PrivateRoute exact path="/flats" component={Flatlist} />
+          <PrivateRoute exact path="/myListings" component={MyListings}/> 
           <Route exact path="/flats/favorites" component={FavoritesFlats} />
           <Route exact path="/users/favorites" component={FavoritesUsers} />
           <Route exact path="/user/:id" component={DetailFlatmate} />

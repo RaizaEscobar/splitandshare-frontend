@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { withAuth } from "../lib/AuthProvider";		
 import MatchFlatmate from "./MatchFlatmate";
 import service from "../api/service";
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 function FavoritesUsers(props) {
@@ -16,9 +17,17 @@ function FavoritesUsers(props) {
     })
     return (
         <div>
-            {favoritesUsers.map((element, index)=>{
-                return <MatchFlatmate key={index} {...element}></MatchFlatmate>
+         <div className = "favoriteUsers-container">
+         <div className="container">
+	<div className="row">
+		
+            {favoritesUsers.map((element, index)=>{ 
+                return  <MatchFlatmate key={index} {...element}></MatchFlatmate> 
             })}
+              
+        </div> 
+        </div> 
+        </div>  
         </div>
     )
 }
