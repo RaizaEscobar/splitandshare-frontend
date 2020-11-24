@@ -26,7 +26,7 @@ code {
 	 display: flex;
 	 justify-content: center;
 }
- .wrapper {
+ .wrapperCalculator {
 	 margin-top: 5%;
 	 display: flex;
 	 justify-content: center;
@@ -174,7 +174,7 @@ option:hover, option:focus {
 	 outline: none;
 }
  @media (max-width: 736px) {
-	 .wrapper {
+	 .wrapperCalculator {
 		 width: 100%;
 	}
 	 .container {

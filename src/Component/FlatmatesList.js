@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import axios from "axios";
+import service from "../api/service"
 import MatchFlatmate from "./MatchFlatmate.js";
 
 class FlatmatesList extends Component {
@@ -24,23 +24,20 @@ class FlatmatesList extends Component {
         event.target[6].value === "indifferent" ? "" : event.target[6].value,
     };
 
-    axios
-      .get("http://localhost:4000/users", { params: list })
+    service.getUsers(list)
       .then((response) => {
         this.setState({
-          flatmates: response.data,
+          flatmates: response,
         });
       });
   };
 
   componentDidMount = () => {
     if (this.state.flatmates.length === 0) {
-      axios
-        .get("http://localhost:4000/users", { params: { limit: 20 } })
-        .then((response) => {
-          console.log(response.data);
+      service.getUsers({ limit: 20 })
+        .then((response) => {          
           this.setState({
-            flatmates: response.data,
+            flatmates: response,
           });
         });
     }
