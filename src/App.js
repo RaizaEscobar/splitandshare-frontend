@@ -60,8 +60,9 @@ let pages=[{
       <PrivateRoute path="/private" component={Private} />
      <PrivateRoute exact path="/" component={DashboardHunter}/>
      <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
-     <PrivateRoute path="/flat/:id" component={FlatDetails} />
+     <PrivateRoute exact path="/flat/:id" component={FlatDetails} />
      <PrivateRoute path="/addMyFlat" component={AddFlat} />
+     <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
      <PrivateRoute exact path="/flats" component={Flatlist}/>
      <Route exact path="/flats/favorites" component={FavoritesFlats}/>
      <Route exact path="/users/favorites" component={FavoritesUsers}/>
