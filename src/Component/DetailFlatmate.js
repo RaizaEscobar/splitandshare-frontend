@@ -46,11 +46,11 @@ function DetailFlatmate(props) {
          
           <li>My Budget: {flatmate.maxBudget} €</li>
           <br></br>
-          <li><FontAwesomeIcon icon={faGraduationCap} />: {flatmate.isStudying}</li>
+          <li><FontAwesomeIcon icon={faGraduationCap} />: {flatmate.isStudying ? "Yes" : "No"}</li>
           <li><FontAwesomeIcon icon={faPaw} />:  {flatmate.hasPet ? "Yes" : "No"}</li>
-          <li><FontAwesomeIcon icon={faSmoking} />:  {flatmate.isSmoking}</li>
+          <li><FontAwesomeIcon icon={faSmoking} />:  {flatmate.isSmoking ? "Yes" : "No"}</li>
           
-          <li><FontAwesomeIcon icon={faBriefcase} />:{flatmate.isWorking}</li>
+          <li><FontAwesomeIcon icon={faBriefcase} />:{flatmate.isWorking ? "Yes" : "No"}</li>
         </ul>
          <div> 
           <p> <b>I am looking for:</b></p>

@@ -5,7 +5,7 @@ function FlatlistCard(props) {
     return (
         <Link to={`/flat/${props._id}`}>
             <div>
-                <img src={props.flatImages[0]} alt="Profile"></img>
+                <img src={props.flatImages[0]} alt="Profile" height="300"></img>
             </div>
             <div>
                 <ul>
