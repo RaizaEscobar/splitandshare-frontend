@@ -22,7 +22,7 @@ function DashboardHunter(props) {
   return (
     <>
       <section>
-         <FavoriteCard link= {`/user/${props.user._id}`} title="algoo" image={props.user.image} />
+         <FavoriteCard link= {`/user/${props.user._id}`} title="Me" image={props.user.image} />
         <FavoriteCard
           title="Favorite flats"
           buttonTitle="Check your flats"

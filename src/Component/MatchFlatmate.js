@@ -5,7 +5,7 @@ function MatchFlatmate(props) {
     return (
         <Link to={`/user/${props._id}`}>
             <div>
-                <img src={props.image} alt="Profile"></img>
+                <img src={props.image} alt="Profile" width="250" height="300" ></img>
             </div>
             <div>
                 <ul>

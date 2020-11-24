@@ -37,13 +37,13 @@ export class EditProfile extends Component {
        handleChange = (event) => {
         let { name, value } = event.target;
         this.setState({ user : {
-             ...this.state.user,
+             ...this.state.user, ...this.state.user.searchingFor,
             [name]: value} });
       }; 
 
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking} = this.state.user;
+        const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking, smoke, maxAge, minAge } = this.state.user;
         axios.post(`http://localhost:4000/improveMyProfile/${this.props.user._id}`, this.state.user).then(response => {
             console.log(response.data)
         })
@@ -93,23 +93,27 @@ export class EditProfile extends Component {
           </select>
           <label> <h4>I am looking for</h4> </label>
           <label> <b>Gender</b> </label>
-            <select name="gender" value={this.state.user.searchingFor.gender} onChange={(e) => this.handleChange(e)}>
+            <select name="gender" value={this.state.user.searchingFor ?  this.state.user.searchingFor.gender : ""} onChange={(e) => this.handleChange(e)}>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
                   <option value="indifferent">Indifferent</option>
           </select>
           <label> <b>Pets</b> </label>
-            <select name="hasPet" value={this.state.user.searchingFor.pets} onChange={(e) => this.handleChange(e)} >
+            <select name="hasPet" value={this.state.user.searchingFor ? this.state.user.searchingFor.hasPet : "" } onChange={(e) => this.handleChange(e)} >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
                   <option value="indifferent">Indifferent</option>
           </select>
           <label> <b>Smoke</b> </label>
-            <select name="smoke" value={this.state.user.searchingFor.smoke} onChange={(e) => this.handleChange(e)} >
+            <select name="smoke" value={this.state.user.searchingFor ? this.state.user.searchingFor.smoke : ""} onChange={(e) => this.handleChange(e)} >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
                   <option value="indifferent">Indifferent</option>
           </select>
+          <label> <b>Age between</b> </label>
+          <input type="number" name="minAge" value={this.state.user.searchingFor ? this.state.user.searchingFor.minAge : ""} onChange={(e) => this.handleChange(e)} />
+          <label> <b>and</b> </label>
+          <input type="number" name="maxAge" value={this.state.user.searchingFor ? this.state.user.searchingFor.maxAge : ""} onChange={(e) => this.handleChange(e)} />
           <button type="submit">Save your profile </button>
         </form>
             </div>

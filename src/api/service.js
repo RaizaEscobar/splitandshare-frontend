@@ -4,10 +4,17 @@ class Service {
   constructor() {
     this.service = axios.create({
       baseURL: "http://localhost:4000",
-      // withCredentials: true // => you might need this when having the users in the app
+       withCredentials: true // => you might need this when having the users in the app
       // XMLHttpRequest from a different domain cannot set cookie values for their own domain unless withCredentials is set to true before making the request.
       // withCredentials indicates whether or not cross-site Access-Control requests should be made using credentials
     });
+  }
+  getFlat = async(id) => {
+    this.service
+      .get(`/profile/${id}`)
+      .then((response) => {
+        return response.data;
+      });
   }
   handleUpload = async (theFile) => {
     console.log("file in service: ", theFile);

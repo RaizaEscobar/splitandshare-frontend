@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ButtonCard from "./ButtonCard";
+import { withAuth } from "../lib/AuthProvider";
+import service from "../api/service";
 
 function DetailFlatmate(props) {
   const [flatmate, setFlatmate] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     if(Object.keys(flatmate).length===0){
-    axios
-      .get(`http://localhost:4000/profile/${props.match.params.id}`)
+    service.getFlat(props.match.params.id)
+    .then((response) => {
+      setFlatmate(response)
+    } )
+      axios.get(`http://localhost:4000/isFavorite/${props.match.params.id}`)
       .then((response) => {
-        setFlatmate(response.data);
-      });
+        setIsFavorite(response.data)
+      }
+      )
     }
   }); 
+
+  const handleFavorite = () => {
+    axios.post(`http://localhost:4000/idealFlatmate/${props.match.params.id}`)
+    .then(() => {setIsFavorite(!isFavorite)}) 
+  }
 
   return (
     <div>
@@ -42,12 +54,12 @@ function DetailFlatmate(props) {
           <li>Age: Between{flatmate.searchingFor ? flatmate.searchingFor.minAge : ""} and {flatmate.searchingFor ? flatmate.searchingFor.maxAge : ""}</li>
           </ul>
         </div>  
-        <ButtonCard buttonTitle="My Favorite flats" link="/"  />
-        <ButtonCard buttonTitle="Edit my profile" link="/improveMyProfile"  />
-        
+       
+       { props.user._id === props.match.params.id ? <ButtonCard buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+       
       </div>
     </div>
   );
 }
 
-export default DetailFlatmate;
+export default withAuth(DetailFlatmate);
