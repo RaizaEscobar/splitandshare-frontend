@@ -3,9 +3,10 @@ import CalculateFlatmate from "./CalculateFlatmate";
 import CalculateRoom from "./CalculateRoom";
 import axios from "axios";
 import CalculateResult from "./CalculateResult.js";
+import "bootstrap/dist/css/bootstrap.css";
 
 class Calculator extends Component {
-  maxRooms = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  maxRooms = [2, 3, 4, 5, 6];
   state = {
     rooms: [{}, {}],
     result: [],
@@ -28,7 +29,7 @@ class Calculator extends Component {
       rooms: [],
       flatmates: [],
     };
-    let index = 11;
+    let index = 7;
     this.state.rooms.forEach((element) => {
       let flatmate = {
         name: event.target[index++].value,
@@ -55,38 +56,59 @@ class Calculator extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleCalculate}>
-          <label>What's your total rent? €</label>
-          <input type="number"></input>
-          <label> What's the total size of the flat? m²</label>
-          <input type="number"></input>
-          {this.maxRooms.map((ele, index) => {
-            return (
-              <button type="button" onClick={this.handleChanges}>
-                {ele}
-              </button>
-            );
-          })}
-
-          <div>
-            {this.state.rooms.map((ele, index) => {
-              return <CalculateFlatmate key={index}></CalculateFlatmate>;
-            })}
+      <div className="wrapper">
+        <div className="container">
+          <div className="py-5 text-center">
+            <h2>Divide Your Rent Fairly</h2>
+            <p className="lead">
+              When you’re sharing an apartment with roommates, it can be a
+              challenge to decide who takes which bedroom, and at what price.
+              Sit down with your roommates and use the calculator below to find
+              the fair division.
+            </p>
           </div>
-          <div>
-            {this.state.rooms.map((ele, index) => {
-              return <CalculateRoom key={index}></CalculateRoom>;
-            })}
-          </div>
+          <form onSubmit={this.handleCalculate}>
+            <div className="name">
+            <div>
+              <label>What's your total rent? €</label>
+              <input type="number"></input>
+              </div>
+              <div>
+              <label> What's the total size of the flat? m²</label>
+              <input type="number"></input>
+              </div>
+              
+              <label>Number of rooms in the flat</label>
+              <div id="roomsNumber">
+              {this.maxRooms.map((ele, index) => {
+                return (
+                  <button type="button" onClick={this.handleChanges}>
+                    {ele}
+                  </button>
+                );
+              })}</div>              
+            </div>
+            <hr/>
+            <div className="users">
+              {this.state.rooms.map((ele, index) => {
+                return <CalculateFlatmate key={index}></CalculateFlatmate>;
+              })}
+            </div>
+            <hr/>
+            <div>
+              {this.state.rooms.map((ele, index) => {
+                return <CalculateRoom key={index}></CalculateRoom>;
+              })}
+            </div>
 
-          <button type="submit"> Calculate!! </button>
-        </form>
-        <div>
+            <button className="btns" type="submit"> Calculate!! </button>
+          </form>
+          <div>
             {this.state.result.map((ele, index) => {
-              return <CalculateResult key={index} {...ele}></CalculateResult>;
+              return <CalculateResult  className="result" key={index} {...ele}></CalculateResult>;
             })}
           </div>
+        </div>
       </div>
     );
   }

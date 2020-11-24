@@ -1,77 +1,73 @@
-import './App.css';
-import Navbar from "./Component/Navbar.js"
-import 'bulma/css/bulma.css';
-import Calculator from './Component/Calculator.js';
-import Signup from './Component/Signup.js';
-import Login from './Component/Login.js';
-import { Route, Switch } from 'react-router-dom';
-import AnonRoute from './Component/AnonRoute.js';
-import PrivateRoute from './Component/PrivateRoute.js';
-import Private from './Component/Private.js';
+import "./App.css";
+import Navbar from "./Component/Navbar.js";
+import "bulma/css/bulma.css";
+import Calculator from "./Component/Calculator.js";
+import Signup from "./Component/Signup.js";
+import Login from "./Component/Login.js";
+import { Route, Switch } from "react-router-dom";
+import AnonRoute from "./Component/AnonRoute.js";
+import PrivateRoute from "./Component/PrivateRoute.js";
+import Private from "./Component/Private.js";
 import AuthProvider from "./lib/AuthProvider.js";
-import DashboardHunter from './Component/DashboardHunter.js'
-import DetailFlatmate from './Component/DetailFlatmate';
-import DashboardOwner from './Component/DashboardOwner.js'
-import FlatDetails from './Component/FlatDetails.js'
-import FlatmatesList from './Component/FlatmatesList.js';
-import AddFlat from './Component/AddFlat.js';
-import Flatlist from './Component/Flatlist.js'
-import FavoritesUsers from './Component/FavoritesUsers.js'
-import FavoritesFlats from './Component/FavoritesFlats.js'
-import EditProfile from './Component/EditProfile'
+import DashboardHunter from "./Component/DashboardHunter.js";
+import DetailFlatmate from "./Component/DetailFlatmate";
+import DashboardOwner from "./Component/DashboardOwner.js";
+import FlatDetails from "./Component/FlatDetails.js";
+import FlatmatesList from "./Component/FlatmatesList.js";
+import AddFlat from "./Component/AddFlat.js";
+import Flatlist from "./Component/Flatlist.js";
+import FavoritesUsers from "./Component/FavoritesUsers.js";
+import FavoritesFlats from "./Component/FavoritesFlats.js";
+import EditProfile from "./Component/EditProfile";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import {useState} from 'react'
 
-let styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-  margin: '100px'
-};
 function App(props) {
-let pages=[{
-  page:'signup',
-  link:'signup' 
-},
-{ page:'login',
-  link: 'login'
-},
-{ page:'my profile',
-  link: `user`
-},
-{ page:'find flat',
-  link: 'flats'
-},
-{ page:'find flatmate',
-  link: 'flatmates'
-},
-{ page:'messages',
-  link: 'messages'
-},
-{ page:'calculator',
-  link: 'calculator'
-}]
-
+  const [isActive, setIsActive] = useState(true)
+  function onToggle(){
+    setIsActive(!isActive);
+  }
+  const style = {
+    display:"block",
+    top: "10px",
+    left: isActive ? "10px" : "300px"
+  }
   return (
-    <AuthProvider>   
-    <div style={styles}>
-    <Navbar pages={pages}/>
-    <Switch>
-      <Route exact path='/calculator' component={Calculator} />
-      <AnonRoute path="/signup" component={Signup} />
-      <AnonRoute path="/login" component={Login} />	
-      <PrivateRoute path="/private" component={Private} />
-     <PrivateRoute exact path="/" component={DashboardHunter}/>
-     <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
-     <PrivateRoute exact path="/flat/:id" component={FlatDetails} />
-     <PrivateRoute path="/addMyFlat" component={AddFlat} />
-     <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
-     <PrivateRoute exact path="/flats" component={Flatlist}/>
-     <Route exact path="/flats/favorites" component={FavoritesFlats}/>
-     <Route exact path="/users/favorites" component={FavoritesUsers}/>
-      <Route exact path="/user/:id" component={DetailFlatmate}/>
-     <PrivateRoute path="/improveMyProfile" component={EditProfile}/>
-      <Route exact path="/flatmates" component={FlatmatesList} />
-      </Switch>
-    </div>
-    </AuthProvider>   
+    <AuthProvider>
+      <div className="body">
+        <Navbar isActive={isActive}/>
+        <div className={`page-content p-5 ${isActive ? "active" : ""}`} id="content">
+        <button
+          id="sidebarCollapse"
+          type="button"
+          className="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"
+          style={style}
+          onClick={onToggle}
+          >
+         <FontAwesomeIcon icon={faBars} />
+          <small className="text-uppercase font-weight-bold">Menu</small>
+        </button>
+        <Switch>
+          <Route exact path="/calculator" component={Calculator} />
+          <AnonRoute path="/signup" component={Signup} />
+          <AnonRoute path="/login" component={Login} />
+          <PrivateRoute path="/private" component={Private} />
+          <PrivateRoute exact path="/" component={DashboardHunter} />
+          <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
+          <PrivateRoute exact path="/flat/:id" component={FlatDetails} />
+          <PrivateRoute path="/addMyFlat" component={AddFlat} />
+          <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
+          <PrivateRoute exact path="/flats" component={Flatlist} />
+          <Route exact path="/flats/favorites" component={FavoritesFlats} />
+          <Route exact path="/users/favorites" component={FavoritesUsers} />
+          <Route exact path="/user/:id" component={DetailFlatmate} />
+          <PrivateRoute path="/improveMyProfile" component={EditProfile} />
+          <Route exact path="/flatmates" component={FlatmatesList} />
+        </Switch>
+        </div>
+      </div>
+    </AuthProvider>
   );
 }
 
