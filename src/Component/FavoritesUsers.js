@@ -3,8 +3,6 @@ import { withAuth } from "../lib/AuthProvider";
 import MatchFlatmate from "./MatchFlatmate";
 import service from "../api/service";
 
-
-
 function FavoritesUsers(props) {
     const [favoritesUsers, setFavoritesUsers] = useState([]);
 

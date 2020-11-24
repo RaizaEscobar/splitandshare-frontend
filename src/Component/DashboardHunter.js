@@ -1,47 +1,66 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import FavoriteCard from "./FavoriteCard.js";
 import MatchFlatmate from "./MatchFlatmate.js";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import service from "../api/service";
 import { withAuth } from "../lib/AuthProvider";
+import {
+  faHome,
+  faUser,
+  faCalculator,
+  faSignOutAlt,
+  faUserFriends,
+  faHouseUser,
+  faUserPlus,
+  faSignInAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 function DashboardHunter(props) {
-    const [suggestedUsers, setSuggestedUsers] = useState([]);
+  const [suggestedUsers, setSuggestedUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(()=>{
-      console.log(props)
-      if(suggestedUsers.length===0){
-        axios.get("http://localhost:4000/users/suggested").then((response) => {
-            setSuggestedUsers(response.data);
-          });
-      }
-    })
-
-
+  useEffect(() => {
+    console.log(props);
+    if (isLoading) {
+      service.suggestedUsers().then((response) => {
+        setSuggestedUsers(response);
+        setIsLoading(false)
+        console.log(response)
+      });
+    }
+  });
 
   return (
     <>
-      <section>
-         <FavoriteCard link= {`/user/${props.user._id}`} title="Me" image={props.user.image} />
+      <section className="content">
+        <FavoriteCard
+          link={`/user/${props.user._id}`}
+          title="Me"
+          icon={faUser}
+          buttonTitle="Check your profile"
+        />
         <FavoriteCard
           title="Favorite flats"
           buttonTitle="Check your flats"
           link="/flats/favorites"
-          image=""
+          icon={faHouseUser}
         />
         <FavoriteCard
           title="Favorite people"
           buttonTitle="Check your future flatmates"
           link="/users/favorites"
-          image=""
+          icon={faUserFriends}
         />
       </section>
       <section>
-      {suggestedUsers.map((element,index)=>{
-          return <MatchFlatmate key={index} {...element}/>  
-      })}  
-
-      <Link to="/flatmates"><button>See more profiles!</button></Link>
+      <div  className="match">
+          {suggestedUsers.map((element, index) => {
+            return <MatchFlatmate key={index} {...element} />;
+          })}
+          </div>
+        <Link to="/flatmates">
+          <button>See more profiles!</button>
+        </Link>
       </section>
     </>
   );

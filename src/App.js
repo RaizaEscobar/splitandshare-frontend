@@ -23,6 +23,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
 import MyListings from './Component/MyListings'
+import Home from './Component/Home.js'
 
 function App(props) {
   const [isActive, setIsActive] = useState(true)
@@ -34,6 +35,7 @@ function App(props) {
     top: "10px",
     left: isActive ? "10px" : "300px"
   }
+ 
   return (
     <AuthProvider>
       <div className="body">
@@ -54,7 +56,8 @@ function App(props) {
           <AnonRoute path="/signup" component={Signup} />
           <AnonRoute path="/login" component={Login} />
           <PrivateRoute path="/private" component={Private} />
-          <PrivateRoute exact path="/" component={DashboardHunter} />
+          <Route exact path="/" component={Home} />
+          <PrivateRoute path="/dashboardHunter" component={DashboardHunter} />
           <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
           <PrivateRoute exact path="/flat/:id" component={FlatDetails} />
           <PrivateRoute path="/addMyFlat" component={AddFlat} />

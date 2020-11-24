@@ -57,6 +57,7 @@ class Navbar extends Component {
         <div class="py-4 px-3 mb-4 bg-light">
           <div class="media d-flex align-items-center">
             <div class="media-body">
+            {this.props.user && <img src={this.props.user.image} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm"/>}
               {this.props.user && this.props.user.username !== "" && (
                 <h4 class="m-0">{`Hola, ${this.props.user.username}`}</h4>
               )}
@@ -103,9 +104,5 @@ class Navbar extends Component {
     );
   }
 }
-Navbar.propTypes = {
-  pages: PropTypes.array.isRequired,
-  color: PropTypes.string,
-};
 
 export default withAuth(Navbar);
