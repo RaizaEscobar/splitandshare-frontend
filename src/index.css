@@ -8,12 +8,20 @@ body {
   
 }
 
+.logo{
+  height: 100px;
+  position: fixed;
+  top: 0;
+  right: 30px;
+}
+
 p, h2{
-  color: #8e2807;
+  color: #6C3A5C;
   
 }
 
 .result{
+  margin-top: 50px;
   display: flex;
   justify-content: space-around;
 }
@@ -27,13 +35,10 @@ code {
  body {
 	 display: flex;
    justify-content: center;
-   background-color:#cfd8d7;
-}
-
-body {
 	background: linear-gradient(-45deg, #B5C9C3, #cfd8d7, #e7cfcd, #9f9aa4);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
+  min-height: 1000px;
 }
 
 @keyframes gradient {
@@ -96,15 +101,16 @@ body {
 	 letter-spacing: 0.15rem;
 	 font-family: "Arimo";
 	 margin-bottom: 5px;
-	 color: #8e2807;
+	 color: #6C3A5C;
    border-radius: 4px;
    margin-right: 30px;
+   height: 26px;
 }
  form label {
 	 text-transform: uppercase;
 	 font-size: 11px;
 	 letter-spacing: 2px;
-   color: #8e2807;
+   color:#6C3A5C;
    margin-right: 15px;
    width:150px;
 }
@@ -309,6 +315,21 @@ form{
 	box-shadow: 0 0 5px rgba(0,80,80,.4); 
 	border-radius: 4px;
 }
+.labelCalculator {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #6C3A5C;
+  margin-right: 15px;
+  width: 150px;
+  font-weight: bolder;
+}
+
+.calculatorResult {
+  color: #49868C;
+  font-weight: bold;
+}
+
 .btnB{
 	transition: all .5s ease;
 	width: 70%;
@@ -319,7 +340,6 @@ form{
 	border: 1px solid #49868C;
 	margin-top: 1.5em;
   margin-bottom: 1em;
-  padding: 5px;
 }
 .btnB:hover, .btnB:focus{
 	background-color: #49868C;
