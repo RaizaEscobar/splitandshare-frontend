@@ -43,7 +43,6 @@ export class EditProfile extends Component {
 
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking, smoke, maxAge, minAge } = this.state.user;
         service.editUser(this.props.user._id, this.state.user).then(response => {
           console.log(response)
       })
