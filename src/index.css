@@ -91,7 +91,6 @@ body {
 }
  form input {
 	 width: 200px;
-	 max-height: 25px;
 	 border: 0;
 	 font-size: 1rem;
 	 letter-spacing: 0.15rem;
@@ -248,7 +247,7 @@ option:hover, option:focus {
 	display: flex;
 }
 .company__info{
-	background-color: #008080;
+	background-color: #B5C9C3;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	display: flex;
@@ -350,13 +349,12 @@ form{
   margin: 20px;
 }
   
-.matchFlatmate-container a,
+ .matchFlatmate-container a,
 a:hover,
 a:focus {
 	color: inherit;
 	
-}
-
+} 
 .matchFlatmate-container body {
     background-color: #F1F2F3;
 }
@@ -561,10 +559,12 @@ a:focus {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    height: 25px
   }
   
   .flatmatesList input[type=text]:focus {
     border: 3px solid #9F9AA4;
+    height: 25px
   }
 
   .flatmatesList input[type=number] {
@@ -576,10 +576,12 @@ a:focus {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    height: 25px
   }
   
   .flatmatesList input[type=number]:focus {
     border: 3px solid #9F9AA4;
+    height: 25px
   }
 
   .flatmatesList select {
@@ -588,6 +590,7 @@ a:focus {
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
+    height: 25px
   }
 
   .flatmatesList label {
@@ -613,3 +616,64 @@ a:focus {
     top: 80px;
     display: inline-block;
   }
+
+#sizeChange{
+  height: 300px;
+  width: 400px;
+
+}
+
+#flatListCard {
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.flatListLine a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+#flatListTitle {
+  display: flex;
+    font-size: 17px;
+}
+
+#flatListLetters {
+  margin-top: -17px;
+  display: flex;
+  font-size: 30px;
+}
+
+#flatListlet {
+  display: flex;
+    margin-top: -17px;
+}
+
+.flatChar {
+  display: flex;
+    justify-content: space-around;
+}
+
+#centerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#fixFlatDetailCard{
+  width: 500px;
+}
+
+.flatDetailCard {
+  display: flex;
+    justify-content: center;
+}
+
+#flatDetailFooter{
+  display: flex;
+  justify-content: center;
+}
+
+.favoriteFlatsGrid {
+      display: flex;
+    justify-content: space-around;
+}

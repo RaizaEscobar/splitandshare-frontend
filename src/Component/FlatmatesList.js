@@ -48,7 +48,7 @@ class FlatmatesList extends Component {
       <>
       <div className = "flatmatesList">
       <div className = "stickTheForm">
-        <form onSubmit={this.handleSubmit}>
+        <form className = "windowFit" onSubmit={this.handleSubmit}>
           <label>Zone</label>
           <input type="text" />
           <label>Gender</label>

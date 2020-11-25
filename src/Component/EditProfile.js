@@ -27,7 +27,7 @@ export class EditProfile extends Component {
           .handleUpload(uploadData)
           .then((response) => {
             console.log("response is: ", response);
-            this.setState({ image: response.secure_url });
+            this.setState({  user: {image: response.secure_url} });
           })
           .catch((err) => {
             console.log("Error while uploading the file: ", err);
@@ -43,9 +43,10 @@ export class EditProfile extends Component {
 
       handleFormSubmit = (event) => {
         event.preventDefault();
+        const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking, smoke, maxAge, minAge } = this.state.user;
         service.editUser(this.props.user._id, this.state.user).then(response => {
-            console.log(response)
-        })
+          console.log(response)
+      })
       };
     
     
