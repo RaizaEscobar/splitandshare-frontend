@@ -1,11 +1,13 @@
 // lib/AuthProvider.js
 
 import React from "react";
+/* import { withRouter } from 'react-router' */
 import auth from "./auth-service";	// Importamos funciones para llamadas axios a la API
 const { Consumer, Provider } = React.createContext();
 
+
 // HOC para crear Consumer
-const withAuth = (WrappedComponent) => {
+const withAuth = (WrappedComponent, props) => {
 
     return class extends React.Component {
       render() {
@@ -65,7 +67,7 @@ componentDidMount() {
 
   logout = () => {
     auth.logout()
-      .then(() => this.setState({ isLoggedin: false, user: null }))
+      .then(() => this.setState({ isLoggedin: false, user: null })/* , this.props.history.push('/') */ )
       .catch((err) => console.log(err));
   };
 

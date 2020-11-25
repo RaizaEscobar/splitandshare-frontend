@@ -30,11 +30,11 @@
         flex-direction: column;
    }
 }
-.card {
+#card {
     width: 100%;
     width: 300px;
     height: 250px;
-    background-color: #292929;
+    background-color: #B5C9C3;
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
@@ -54,7 +54,7 @@
     width: 100%;
     height: 80px;
     max-width: 80px;
-    background: linear-gradient(90deg, #ff7e7e 0%, #ff4848 40%, rgba(0, 0, 0, 0.28) 60%);
+    background: linear-gradient(90deg, #e7cfcd 0%, #49868C 40%, rgba(0, 0, 0, 0.28) 60%);
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -64,7 +64,7 @@
     background-position: 0px;
     background-size: 200px;
 }
-.material-icons.md-18 {
+material-icons.md-18 {
     font-size: 18px;
 }
 .material-icons.md-24 {
@@ -76,7 +76,7 @@
 .material-icons.md-48 {
     font-size: 48px;
 }
-.card .title {
+#card .title {
     width: 100%;
     margin: 0;
     text-align: center;
@@ -86,7 +86,7 @@
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-.card .text {
+#card .text {
     width: 80%;
     margin: 0 auto;
     font-size: 13px;
@@ -99,22 +99,22 @@
     max-height: 0;
     transition: all 0.3s ease;
 }
-.card:hover {
+#card:hover {
     height: 270px;
 }
-.card:hover .info {
+#card:hover .info {
     height: 90%;
 }
-.card:hover .text {
+#card:hover .text {
     transition: all 0.3s ease;
     opacity: 1;
     max-height: 40px;
 }
-.card:hover .icon {
+#card:hover .icon {
     background-position: -120px;
     transition: all 0.3s ease;
 }
-.card:hover .icon i {
+#card:hover .icon i {
     background: linear-gradient(90deg, #ff7e7e, #ff4848);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

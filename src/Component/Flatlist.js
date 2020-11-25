@@ -48,6 +48,8 @@ class Flatlist extends Component {
   render() {
     return (
       <div>
+      <div className ="flatmatesList">
+      <div className = "">
         <form onSubmit={this.handleSubmit}>
           <label>Minimun Price</label>
           <input type="number" />
@@ -58,7 +60,8 @@ class Flatlist extends Component {
           <label>Number of bathrooms</label>
           <input type="number" />
           <label>Neighborhood</label>
-          <input type="string" />
+          <input type="text" />
+          <br/>
           <label>Air Conditioner</label>
           <select>
             <option value="indifferent">indifferent</option>
@@ -85,14 +88,18 @@ class Flatlist extends Component {
             <option value="false">No</option>
             <option value="true">Yes</option>
           </select>
-          <button>Search</button>
+          <button className="btnB">Search</button>
         </form>
 
         <section>
+        <div class="card-deck">
           {this.state.flats.map((element, index) => {
             return <FlatlistCard key={index} {...element} />;
           })}
+          </div>
         </section>
+        </div>
+        </div>
       </div>
     );
   }

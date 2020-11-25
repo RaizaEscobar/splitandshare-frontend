@@ -1,4 +1,5 @@
 import "./App.css";
+import logo from "./images/logo.png";
 import Navbar from "./Component/Navbar.js";
 import "bulma/css/bulma.css";
 import Calculator from "./Component/Calculator.js";
@@ -33,8 +34,8 @@ function App(props) {
   const style = {
     display:"block",
     top: "10px",
-    left: isActive ? "10px" : "300px"
-  }
+    left: isActive ? "10px" : "300px",
+     }
  
   return (
     <AuthProvider>
@@ -51,6 +52,7 @@ function App(props) {
          <FontAwesomeIcon icon={faBars} />
           <small className="text-uppercase font-weight-bold">Menu</small>
         </button>
+        <img src={logo} alt="logo" className="logo" />
         <Switch>
           <Route exact path="/calculator" component={Calculator} />
           <AnonRoute path="/signup" component={Signup} />
