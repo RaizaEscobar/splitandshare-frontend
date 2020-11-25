@@ -10,7 +10,7 @@ import {
  function DashboardOwner() {
     return (
         <div>
-             <section className="content">
+             <section className="content" style={{height: "600px", justifyContent: "space-around"}}>
         <FavoriteCard
           title="Add Flat"
           buttonTitle="Add a new flat"

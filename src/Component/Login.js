@@ -11,8 +11,7 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { email, password } = this.state;
-    console.log('Login -> form submit', { email, password });
+    const { email, password } = this.state;    
     this.props.login({ email, password });
   };
 
@@ -22,8 +21,7 @@ class Login extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
-    console.log(this.props)
+    const { email, password } = this.state;    
     return (
       <div className = "login-container">
       <div className="container-fluid" id="centerContainer">

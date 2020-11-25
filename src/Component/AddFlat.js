@@ -26,7 +26,8 @@ class AddFlat extends Component {
     storeRoom: false,
     builtinWardrobes: false,
     redirect: "",
-    id : this.props.match.params.id
+    id : this.props.match.params.id,
+    disabled: false,
   };
 
   
@@ -47,6 +48,7 @@ class AddFlat extends Component {
 
   // this method handles just the file upload
   handleFileUpload = async (e) => {
+    this.setState({disabled: true})
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
@@ -56,7 +58,7 @@ class AddFlat extends Component {
       const res = await service.handleUpload(uploadData);
 
       // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-      this.setState({ flatImages: res.secure_url });
+      this.setState({ flatImages: res.secure_url, disabled: false });
     } catch (error) {
       console.log("Error while uploading the file: ", error);
     }
@@ -158,7 +160,7 @@ class AddFlat extends Component {
           />
           <label>Upload photo:</label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          <button type="submit" className= "btnB">Save</button>
+          <button type="submit" className= "btnB" disabled={this.state.disabled}>Save</button>
         </form>
         </div>
       </div>

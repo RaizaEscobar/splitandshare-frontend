@@ -111,6 +111,9 @@ code {
    margin-right: 30px;
    height: 26px;
 }
+form input[type=file]{
+  width: 230px;
+}
  form label {
 	 text-transform: uppercase;
 	 font-size: 11px;
@@ -395,11 +398,6 @@ a:focus {
     perspective: 1000;
 }
 
-.card :hover{
-  text-decoration: none;
-}
-
-
 
 .profile-card-4 {
     max-width: 300px;
@@ -674,7 +672,7 @@ a:focus {
 
 .flatListLine a:hover, a:visited, a:link, a:active
 {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 
@@ -733,6 +731,14 @@ a:focus {
     justify-content: space-between;
 }
 
+.btnB:disabled,
+  .btnB[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: wait;
+}
+
 @media (max-width: 800px) {
   .editProfContainer{
     flex-direction: column;
@@ -755,6 +761,7 @@ a:focus {
     justify-content: center;
     margin-left: -265px;
   }
+  
 }
 
 .firstCntr {
