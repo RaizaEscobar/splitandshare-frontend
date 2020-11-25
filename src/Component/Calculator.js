@@ -47,11 +47,13 @@ class Calculator extends Component {
       body.rooms.push(room);
     });
 
-    axios.post(`${process.env.REACT_APP_API_URL}/calculate`, body).then((response) => {
-      this.setState({
-        result: response.data,
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/calculate`, body)
+      .then((response) => {
+        this.setState({
+          result: response.data,
+        });
       });
-    });
   };
 
   render() {
@@ -69,43 +71,53 @@ class Calculator extends Component {
           </div>
           <form onSubmit={this.handleCalculate}>
             <div className="name">
-            <div>
-              <label>What's your total rent? €</label>
-              <input type="number"></input>
+              <div className="address-info">
+                <label>What's your total rent? €</label>
+                <input type="number"></input>
               </div>
-              <div>
-              <label> What's the total size of the flat? m²</label>
-              <input type="number"></input>
+              <div className="address-info">
+                <label> What's the total size of the flat? m²</label>
+                <input type="number"></input>
               </div>
-              
+
               <label>Number of rooms in the flat</label>
               <div id="roomsNumber">
-              {this.maxRooms.map((ele, index) => {
-                return (
-                  <button type="button" onClick={this.handleChanges}>
-                    {ele}
-                  </button>
-                );
-              })}</div>              
+                {this.maxRooms.map((ele, index) => {
+                  return (
+                    <button type="button" onClick={this.handleChanges}>
+                      {ele}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <hr/>
+            <hr />
             <div className="users">
               {this.state.rooms.map((ele, index) => {
                 return <CalculateFlatmate key={index}></CalculateFlatmate>;
               })}
             </div>
-            <hr/>
+            <hr />
             <div>
               {this.state.rooms.map((ele, index) => {
                 return <CalculateRoom key={index}></CalculateRoom>;
               })}
             </div>
 
-            <button className="btns" type="submit"> Calculate!! </button>
+            <button className="btnB" type="submit">
+              {" "}
+              Calculate!!{" "}
+            </button>
           </form>
           <div>
             {this.state.result.map((ele, index) => {
-              return <CalculateResult  className="result" key={index} {...ele}></CalculateResult>;
+              return (
+                <CalculateResult
+                  className="result"
+                  key={index}
+                  {...ele}
+                ></CalculateResult>
+              );
             })}
           </div>
         </div>

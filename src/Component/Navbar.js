@@ -67,9 +67,16 @@ class Navbar extends Component {
         <NavbarCategory title="MAIN" />
         <ul class="nav flex-column bg-white mb-0">
           <NavbarItem title="Home" link="/" icon={faHome} />
-          {this.props.user && (
+          {this.props.user && this.props.user.userType==="Flat Hunter" && (
             <NavbarItem
               title="Profile"
+              link={`/user/${this.props.user._id}`}
+              icon={faUser}
+            />
+          )}
+          {this.props.user && this.props.user.userType==="Flat Owner" && (
+            <NavbarItem
+              title="My flats"
               link={`/user/${this.props.user._id}`}
               icon={faUser}
             />
@@ -91,7 +98,9 @@ class Navbar extends Component {
           {!this.props.user && <NavbarItem title="Log in" link="/login" icon={faSignInAlt}/>}
           {!this.props.user && <NavbarItem title="Sign up" link="/signup" icon={faUserPlus} />}
         </ul>
-        <NavbarCategory title="SEARCH" />
+        {this.props.user && this.props.user.userType==="Flat Hunter" && (
+          <>
+          <NavbarCategory title="SEARCH" />
         <ul class="nav flex-column bg-white mb-0">
           <NavbarItem
             title="Find Flatmates"
@@ -100,6 +109,7 @@ class Navbar extends Component {
           />
           <NavbarItem title="Find Flats" link="/flats" icon={faHouseUser} />
         </ul>
+        </>)}
       </nav>
     );
   }

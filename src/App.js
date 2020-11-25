@@ -33,8 +33,8 @@ function App(props) {
   const style = {
     display:"block",
     top: "10px",
-    left: isActive ? "10px" : "300px"
-  }
+    left: isActive ? "10px" : "300px",
+     }
  
   return (
     <AuthProvider>
