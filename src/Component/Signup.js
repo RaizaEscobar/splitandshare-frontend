@@ -9,8 +9,7 @@ class Signup extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { email, password, userType } = this.state;
-    console.log("Signup -> form submit", { email, password, userType });
+    const { email, password, userType } = this.state;    
 
     this.props.signup({ email, password, userType });
   };
@@ -21,8 +20,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { email, password, userType } = this.state;
-    console.log(this.props);
+    const { email, password, userType } = this.state;    
     return (
       <div>
         <div class="container-fluid" id="centerContainer">

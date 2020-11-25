@@ -65,11 +65,16 @@ code {
 }
 
 .match{
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  justify-content: center;
+  width:60%;
+  min-width: 400px;
 }
+.matchContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
  @keyframes slideUp {
 	 0% {
 		 -webkit-transform: translateY(100%);
@@ -105,6 +110,9 @@ code {
    border-radius: 4px;
    margin-right: 30px;
    height: 26px;
+}
+form input[type=file]{
+  width: 230px;
 }
  form label {
 	 text-transform: uppercase;
@@ -395,8 +403,6 @@ a:focus {
 }
 
 
-
-
 .profile-card-4 {
     max-width: 300px;
     background-color: #FFF;
@@ -670,7 +676,7 @@ a:focus {
 
 .flatListLine a:hover, a:visited, a:link, a:active
 {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 
@@ -729,6 +735,14 @@ a:focus {
     justify-content: space-between;
 }
 
+.btnB:disabled,
+  .btnB[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: wait;
+}
+
 @media (max-width: 800px) {
   
   .editProfContainer{
@@ -752,8 +766,6 @@ a:focus {
     justify-content: center;
     margin-left: -265px;
   }
-
- 
 }
 
 .firstCntr {
