@@ -57,7 +57,7 @@ function FlatDetails(props) {
         </ul>
     </div>
     <div class="card-footer" id="flatDetailFooter">
-    {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/> :  <button className = "btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+    {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`} /> :  <button className = "btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
       </div>
   </div>
 </div>

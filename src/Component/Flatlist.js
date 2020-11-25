@@ -49,7 +49,7 @@ class Flatlist extends Component {
     return (
       <div>
       <div className ="flatmatesList">
-      <div className = "">
+      <div className = "windowFit">
         <form onSubmit={this.handleSubmit}>
           <label>Minimun Price</label>
           <input type="number" />

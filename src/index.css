@@ -582,6 +582,19 @@ a:focus {
     height: 25px
   }
   
+  textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #B5C9C3;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    height: 70px
+  }
+
+
   .flatmatesList input[type=text]:focus {
     border: 3px solid #9F9AA4;
     height: 25px
@@ -802,7 +815,19 @@ input[type=file]::-webkit-file-upload-button {
 	background-color: #fff;
 	border: 1px solid #49868C;
 	margin-top: 1.5em;
-  margin-bottom: 1em;
+  margin-bottom: 40px;
   padding: 5px;
   
+}
+#addFlatForm{
+  width: 500px;
+}
+
+#centerAddFlat{
+  display: flex;
+  justify-content: center;
+}
+
+#addFlatBtn {
+  width: 400px;
 }
