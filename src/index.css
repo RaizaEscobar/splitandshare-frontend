@@ -211,6 +211,10 @@ option:hover, option:focus {
 	 outline: none;
 }
  @media (max-width: 736px) {
+  .container-flatlist {
+    display: block;
+    flex-direction: column
+  }
 	 .wrapperCalculator {
 		 width: 100%;
 	}
@@ -740,6 +744,7 @@ a:focus {
 }
 
 @media (max-width: 800px) {
+  
   .editProfContainer{
     flex-direction: column;
   }
@@ -761,7 +766,6 @@ a:focus {
     justify-content: center;
     margin-left: -265px;
   }
-  
 }
 
 .firstCntr {
@@ -844,5 +848,14 @@ input[type=file]::-webkit-file-upload-button {
 }
 
 #addFlatBtn {
+  width: 400px;
+}
+
+.container-flatlist {
+  display: flex;
+  justify-content: center;
+}
+
+#flatFilter {
   width: 400px;
 }
