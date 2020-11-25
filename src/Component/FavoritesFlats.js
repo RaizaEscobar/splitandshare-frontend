@@ -14,7 +14,7 @@ function FavoritesFlats(props) {
       }
     })
     return (
-        <div>
+        <div className= "favoriteFlatsGrid">
             {favoritesFlats.map((element, index)=>{
                 return <FlatlistCard key={index} {...element} />
             })}

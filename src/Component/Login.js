@@ -25,20 +25,20 @@ class Login extends Component {
     const { email, password } = this.state;
     console.log(this.props)
     return (
-      <div>
-      <div class="container-fluid">
-      <div class="row main-content bg-success text-center">
-      <div class="col-md-4 text-center company__info">
-      <span class="company__logo"><h2> <FontAwesomeIcon icon={faHome} /></h2></span>
-      <h4 class="company_title">Split and Share</h4>
+      <div className = "login-container">
+      <div className="container-fluid" id="centerContainer">
+      <div className="row main-content bg-success text-center">
+      <div className="col-md-4 text-center company__info">
+      <span className="company__logo"><h2> <FontAwesomeIcon icon={faHome} style={{color: 'white'}}/></h2></span>
+      <h4 className="company_title">Split and Share</h4>
       </div>
-      <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-      <div class="container-fluid">
-      <div class="row">
+      <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
+      <div className="container-fluid">
+      <div className="row">
       <h2>Log In</h2>
       	</div>
-        <div class="row">
-        <form onSubmit={this.handleFormSubmit} class="form-group">
+        <div className="row">
+        <form onSubmit={this.handleFormSubmit} className="form-group">
         <div class="row">
           <input type="email" name="email" className="form__input"  placeholder="Email" value={email} onChange={this.handleChange}/>
           </div>
@@ -53,7 +53,7 @@ class Login extends Component {
         {this.props.message}
         </div>
         <div class="row">
-						<p>Don't have an account? <Link to={"/signup"}> Register here</Link></p>
+						<p style={{color: 'black'}}>Don't have an account? <Link to={"/signup"}> Register here</Link></p>
 					</div>
         </div>
         </div>

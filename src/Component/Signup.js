@@ -25,10 +25,10 @@ class Signup extends Component {
     console.log(this.props)
     return (
       <div>
-       <div class="container-fluid">
+       <div class="container-fluid" id="centerContainer">
        <div class="row main-content bg-success text-center">
        <div class="col-md-4 text-center company__info">
-       <span class="company__logo"><h2> <FontAwesomeIcon icon={faHome} /></h2></span>
+       <span class="company__logo"><h2> <FontAwesomeIcon icon={faHome} style={{color: 'white'}} /></h2></span>
        <h4 class="company_title">Split and Share</h4>
        </div>
        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
@@ -44,7 +44,7 @@ class Signup extends Component {
           <div class="row">
           <input type="password" name="password"  className="form__input" placeholder="Password" value={password} onChange={this.handleChange} />
           </div>
-          <label>Are you looking for a flat or are you a flat owner?</label>  
+          <label style={{color: 'black'}}>Are you looking for a flat or are you a flat owner?</label>  
           <div className = "select-container">
           <select name="userType" value={userType} className="btnSelect"  onChange={this.handleChange} >
                   <option value="Flat Hunter">Flat Hunter</option>
@@ -55,7 +55,7 @@ class Signup extends Component {
         </form>
         {this.props.message}
         <div class="row">
-        <p>Already have an account? </p>
+        <p style={{color: 'black'}}>Already have an account? </p>
         <Link to={"/login"}> Login</Link>
         </div>
         </div>

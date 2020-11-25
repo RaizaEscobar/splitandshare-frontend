@@ -26,14 +26,16 @@ function FlatDetails(props) {
   }
 
   return (
-    <div>
-      <div>
-        <img src={flat.flatImages ? flat.flatImages[0] : ""} alt="Flat" width="500" height="600"></img>
-      </div>
-      <div>
-        <p>{flat.title} </p>
-        <p>{flat.description}</p>
-        <ul>
+    <div className="flatDetailCard">
+      
+
+      <div className="card-group" id="fixFlatDetailCard">
+  <div className="card">
+    <img className="card-img-top" src={flat.flatImages ? flat.flatImages[0] : ""} alt="Card image cap"/>
+    <div className="card-body">
+      <h5 className="card-title">{flat.title}</h5>
+      <p className="card-text">{flat.description}</p>
+      <ul>
           <li>Price: {flat.price} €</li>
           <li>Contact:{flat.age}</li>
           <li>Rooms:{flat.rooms}</li>
@@ -53,8 +55,12 @@ function FlatDetails(props) {
           <li>Builtin Wardrobes:{flat.builtinWardrobes ? "Yes" : "No"}</li>
           <li>Central Heating:{flat.centralHeating ? "Yes" : "No"}</li>
         </ul>
+    </div>
+    <div class="card-footer" id="flatDetailFooter">
+    {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/> :  <button className = "btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
       </div>
-      {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`}/> :  <button onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
+  </div>
+</div>
     </div>
   );
 }
