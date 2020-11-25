@@ -65,11 +65,16 @@ code {
 }
 
 .match{
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  justify-content: center;
+  width:60%;
+  min-width: 400px;
 }
+.matchContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
  @keyframes slideUp {
 	 0% {
 		 -webkit-transform: translateY(100%);
@@ -390,6 +395,9 @@ a:focus {
     perspective: 1000;
 }
 
+.card :hover{
+  text-decoration: none;
+}
 
 
 

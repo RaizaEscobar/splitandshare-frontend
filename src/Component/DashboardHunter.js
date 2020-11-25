@@ -7,21 +7,36 @@ import { withAuth } from "../lib/AuthProvider";
 import {
   faUser,
   faUserFriends,
-  faHouseUser
+  faHouseUser,
 } from "@fortawesome/free-solid-svg-icons";
+import ButtonCard from "./ButtonCard.js";
+import Carousel from "react-elastic-carousel";
 
 function DashboardHunter(props) {
   const [suggestedUsers, setSuggestedUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const breakPoints = [
+    {
+      width: 500,
+      itemsToShow: 1,
+    },
+    {
+      width: 600,
+      itemsToShow: 2,
+    },
+    {
+      width: 768,
+      itemsToShow: 3,
+    }
+  ];
   useEffect(() => {
     console.log(props);
     if (isLoading) {
       service.suggestedUsers().then((response) => {
-        console.log(response)
+        console.log(response);
         setSuggestedUsers(response);
-        setIsLoading(false)
-        console.log(response)
+        setIsLoading(false);
+        console.log(response);
       });
     }
   });
@@ -49,14 +64,18 @@ function DashboardHunter(props) {
         />
       </section>
       <section>
-      <div  className="match">
-          {suggestedUsers.map((element, index) => {
-            return <MatchFlatmate key={index} {...element} />;
-          })}
+        <div className="matchContainer">
+          <div className="match">
+            <Carousel breakPoints={breakPoints}>
+              {suggestedUsers.map((element, index) => {
+                return <MatchFlatmate key={index} {...element} />;
+              })}
+            </Carousel>
           </div>
-        <Link to="/flatmates">
-          <button>See more profiles!</button>
-        </Link>
+          <div className="match">
+            <ButtonCard buttonTitle="See more profiles!" link="/flatmates"/>
+          </div>
+        </div>
       </section>
     </>
   );
