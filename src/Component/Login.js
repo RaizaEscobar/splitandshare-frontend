@@ -39,20 +39,20 @@ class Login extends Component {
       	</div>
         <div className="row">
         <form onSubmit={this.handleFormSubmit} className="form-group">
-        <div class="row">
+        <div className="row">
           <input type="email" name="email" className="form__input"  placeholder="Email" value={email} onChange={this.handleChange}/>
           </div>
-          <div class="row">
+          <div className="row">
           <input type="password" name="password" className="form__input" placeholder="Password" value={password} onChange={this.handleChange} />
           </div>
-          <div class="row">
+          <div className="row">
           <input type="submit" className="btnB"  value="Login"  />
           </div>
         </form>
        
         {this.props.message}
         </div>
-        <div class="row">
+        <div className="row">
 						<p style={{color: 'black'}}>Don't have an account? <Link to={"/signup"}> Register here</Link></p>
 					</div>
         </div>

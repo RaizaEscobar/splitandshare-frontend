@@ -552,7 +552,7 @@ a:focus {
 
   .flatmatesList input[type=text] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid #B5C9C3;
@@ -569,7 +569,7 @@ a:focus {
 
   .flatmatesList input[type=number] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px ;
     margin: 8px 0;
     box-sizing: border-box;
     border: 3px solid #ccc;
@@ -585,12 +585,15 @@ a:focus {
   }
 
   .flatmatesList select {
-    width: 100%;
-    padding: 16px 20px;
-    border: none;
+     width: 100%;
+     border: 3px solid white;
     border-radius: 4px;
-    background-color: #f1f1f1;
-    height: 25px
+    background-color: white;
+    height: 30px ;
+    color: #8e2807;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    font-family: "Arimo";
   }
 
   .flatmatesList label {
@@ -632,6 +635,7 @@ a:focus {
 {
     text-decoration: none;
 }
+
 
 #flatListTitle {
   display: flex;
@@ -676,4 +680,109 @@ a:focus {
 .favoriteFlatsGrid {
       display: flex;
     justify-content: space-around;
+}
+
+
+#formEditProfile {
+  margin-top: -45px;
+}
+
+.editProfContainer {
+  display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .editProfContainer{
+    flex-direction: column;
+  }
+  .firstCntr {
+    margin-right: 0px;
+    width: 260px;
+  }
+  .secondCntr {
+    margin-top: 0px;
+    width: 260px;
+  }
+  .editProfContainer {
+    display: flex;
+      justify-content: center;
+  }
+
+  .editProfContainer .btnB {
+    display: flex;
+    justify-content: center;
+    margin-left: -265px;
+  }
+}
+
+.firstCntr {
+  margin-right: 250px;
+}
+
+.secondCntr {
+  margin-top: 90px;
+}
+
+#profileCntr{
+  display: flex;
+  justify-content: center;
+}
+
+.editProfContainer .btnB {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.polaroid a {
+  background: #ffffff;
+  display: inline-block;
+  margin: 55px 75px 30px;
+  padding: 15px 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  -webkit-transition: all .20s linear;
+  -moz-transition: all .20s linear;
+  transition: all .20s linear;
+  z-index: 0;
+  position: relative;
+}
+.polaroid a:after {
+  color: #333;
+  font-size: 25px;
+  content: attr(title);
+  position: relative;
+  top: 15px;
+}
+.polaroid img {
+  display: block;
+  width: 250px;
+}
+.polaroid a:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index: 10;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+}
+
+input[type=file]::-webkit-file-upload-button {
+  transition: all .5s ease;
+	width: 70%;
+	border-radius: 30px;
+	color:#49868C;
+	font-weight: 600;
+	background-color: #fff;
+	border: 1px solid #49868C;
+	margin-top: 1.5em;
+  margin-bottom: 1em;
+  padding: 5px;
+  
 }

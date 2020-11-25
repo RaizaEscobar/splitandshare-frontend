@@ -53,11 +53,20 @@ export class EditProfile extends Component {
     render() {
         return (
             <div>
-     <h1>Edit Profile</h1>
-        <form onSubmit={(e) => this.handleFormSubmit(e)}>
-          
-            <label> <b>Profile picture:</b> </label>
+              <div className = "flatmatesList" id="profileCntr">
+        <form id="formEditProfile" onSubmit={(e) => this.handleFormSubmit(e)}>
+        <div className = "editProfContainer">
+        <div className = "firstCntr">
+          <br></br>
+          <div className="polaroid">
+      <a href="#" >
+        <img height="250" src={this.state.user.image} alt="ProfilePhoto" title="ProfilePhoto" />
+      </a>
+    </div>
+            <label> <b>Change profile picture:</b> </label>
+            <br></br>
             <input type="file" name="image" onChange={this.handleFileUpload} />
+            <br></br>
             <label> <b>Name:</b> </label>
             <input type="text" name="username" value={this.state.user.username} onChange={(e) => this.handleChange(e)} />
             <label> <b>Gender</b> </label>
@@ -90,8 +99,13 @@ export class EditProfile extends Component {
             <select name="isWorking" value={this.state.user.isWorking} onChange={(e) => this.handleChange(e)} >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
-          </select>
+          </select> 
+          </div>
+          <div className = "secondCntr">
+          <br>
+          </br>
           <label> <h4>I am looking for</h4> </label>
+          <br></br>
           <label> <b>Gender</b> </label>
             <select name="gender" value={this.state.user.searchingFor ?  this.state.user.searchingFor.gender : ""} onChange={(e) => this.handleChange(e)}>
                   <option value="female">Female</option>
@@ -114,8 +128,12 @@ export class EditProfile extends Component {
           <input type="number" name="minAge" value={this.state.user.searchingFor ? this.state.user.searchingFor.minAge : ""} onChange={(e) => this.handleChange(e)} />
           <label> <b>and</b> </label>
           <input type="number" name="maxAge" value={this.state.user.searchingFor ? this.state.user.searchingFor.maxAge : ""} onChange={(e) => this.handleChange(e)} />
-          <button type="submit">Save your profile </button>
+          <button type="submit" className="btnB">Save your profile </button>
+          </div>
+          </div>
+        
         </form>
+        </div>
             </div>
         )
     }
