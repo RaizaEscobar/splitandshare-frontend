@@ -30,7 +30,7 @@
         flex-direction: column;
    }
 }
-.card {
+#card {
     width: 100%;
     width: 300px;
     height: 250px;
@@ -76,7 +76,7 @@
 .material-icons.md-48 {
     font-size: 48px;
 }
-.card .title {
+#card .title {
     width: 100%;
     margin: 0;
     text-align: center;
@@ -86,7 +86,7 @@
     text-transform: uppercase;
     letter-spacing: 4px;
 }
-.card .text {
+#card .text {
     width: 80%;
     margin: 0 auto;
     font-size: 13px;
@@ -99,22 +99,22 @@
     max-height: 0;
     transition: all 0.3s ease;
 }
-.card:hover {
+#card:hover {
     height: 270px;
 }
-.card:hover .info {
+#card:hover .info {
     height: 90%;
 }
-.card:hover .text {
+#card:hover .text {
     transition: all 0.3s ease;
     opacity: 1;
     max-height: 40px;
 }
-.card:hover .icon {
+#card:hover .icon {
     background-position: -120px;
     transition: all 0.3s ease;
 }
-.card:hover .icon i {
+#card:hover .icon i {
     background: linear-gradient(90deg, #ff7e7e, #ff4848);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

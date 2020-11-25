@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import service from "../api/service"
 import FlatlistCard from "./FlatlistCard";
 
 class Flatlist extends Component {
@@ -26,24 +26,20 @@ class Flatlist extends Component {
         event.target[9].value === "indifferent" ? "" : event.target[9].value,
     };
 
-    axios
-      .get("http://localhost:4000/flats", { params: list })
+    service.getFlats(list)
       .then((response) => {
-        console.log(response);
         this.setState({
-          flats: response.data,
+          flats: response,
         });
       });
   };
 
   componentDidMount = () => {
     if (this.state.flats.length === 0) {
-      axios
-        .get("http://localhost:4000/flats", { params: { limit: 20 } })
+      service.getFlats({ limit: 20 })
         .then((response) => {
-          console.log(response.data);
           this.setState({
-            flats: response.data,
+            flats: response,
           });
         });
     }
@@ -96,9 +92,11 @@ class Flatlist extends Component {
         </form>
 
         <section>
+        <div class="card-deck">
           {this.state.flats.map((element, index) => {
             return <FlatlistCard key={index} {...element} />;
           })}
+          </div>
         </section>
         </div>
         </div>

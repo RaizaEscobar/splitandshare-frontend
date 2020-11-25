@@ -7,7 +7,7 @@ function FavoriteCard(props) {
   return (
     <>
       <Link to={props.link}>
-        <div className="card">
+        <div id="card">
           <div class="icon">
           <FontAwesomeIcon icon={props.icon} className="material-icons md-36"/>
           </div>

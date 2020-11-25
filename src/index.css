@@ -26,7 +26,7 @@ code {
 	 display: flex;
 	 justify-content: center;
 }
- .wrapper {
+ .wrapperCalculator {
 	 margin-top: 5%;
 	 display: flex;
 	 justify-content: center;
@@ -174,7 +174,7 @@ option:hover, option:focus {
 	 outline: none;
 }
  @media (max-width: 736px) {
-	 .wrapper {
+	 .wrapperCalculator {
 		 width: 100%;
 	}
 	 .container {
@@ -326,13 +326,12 @@ form{
   margin: 20px;
 }
   
-.matchFlatmate-container a,
+ .matchFlatmate-container a,
 a:hover,
 a:focus {
 	color: inherit;
 	
-}
-
+} 
 .matchFlatmate-container body {
     background-color: #F1F2F3;
 }
@@ -589,3 +588,40 @@ a:focus {
     top: 80px;
     display: inline-block;
   }
+
+#sizeChange{
+  height: 300px;
+  width: 400px;
+
+}
+
+#flatListCard {
+  margin-bottom: 20px;
+  
+}
+
+.flatListLine a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+#flatListTitle {
+  display: flex;
+    font-size: 17px;
+}
+
+#flatListLetters {
+  margin-top: -17px;
+  display: flex;
+  font-size: 30px;
+}
+
+#flatListlet {
+  display: flex;
+    margin-top: -17px;
+}
+
+.flatChar {
+  display: flex;
+    justify-content: space-around;
+}

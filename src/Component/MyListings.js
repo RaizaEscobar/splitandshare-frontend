@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from "axios";
+import service from "../api/service"
 import FlatlistCard from "./FlatlistCard";
 
 export class MyListings extends Component {
@@ -13,10 +13,9 @@ export class MyListings extends Component {
     
 
       fetchAllFlats = () => {
-        axios.get('http://localhost:4000/myListings')
+        service.myFlats()
         .then( (response) =>{
-          const flats = response.data;
-          console.log(flats, 'flaaaats')
+          const flats = response;
           this.setState({ listOfFlats: flats})
         })
         .catch( (err) => console.log(err));

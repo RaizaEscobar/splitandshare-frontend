@@ -1,9 +1,10 @@
 import axios from "axios";
+/* require("dotenv").config(); */
 
 class Service {
   constructor() {
     this.service = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true // => you might need this when having the users in the app
       // XMLHttpRequest from a different domain cannot set cookie values for their own domain unless withCredentials is set to true before making the request.
       // withCredentials indicates whether or not cross-site Access-Control requests should be made using credentials
@@ -55,6 +56,15 @@ class Service {
     }
   }
 
+  editUser = async(id, user) => {
+    try {      
+      const res = await this.service.post(`/improveMyProfile/${id}`,user);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   getFlat = async(id) => {
     try {      
       const res = await this.service.get(`/flat/${id}`);
@@ -82,6 +92,16 @@ class Service {
     }
   }
 
+  myFlats = async() => {
+    try {      
+      const res = await this.service.get("/myListings");
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   setFavoriteFlat = async(id) => {
     try {      
       const res = await this.service.post(`/flat/${id}`);
@@ -94,7 +114,6 @@ class Service {
   handleUpload = async (theFile) => {
     try {
       const res = await this.service.post("/upload", theFile);
-      console.log(res)
       return res.data;
     } catch (error) {
       console.log(error);
@@ -110,14 +129,23 @@ class Service {
     }
   };
 
-  getFlats = async () => {
+  getFlats = async (filter) => {
       try {
-          const res = await this.service.get("/flats")          
+          const res = await this.service.get("/flats", { params: { filter } })          
           return res.data
       } catch (error) {
         console.log(error);
       }
   }
+
+  getUsers = async (filter) => {
+    try {
+        const res = await this.service.get("/users", { params: { filter } })          
+        return res.data
+    } catch (error) {
+      console.log(error);
+    }
+}
 
   updateFlat = async(id, flat) => {
     try {

@@ -54,7 +54,8 @@ class Navbar extends Component {
         >
           <div className="navbar-start">
             {navbarItems}
-            <button onClick={logout} >Logout</button>
+            <button onClick={logout}  >Logout</button>
+        
           </div>
         </div>
       </nav>

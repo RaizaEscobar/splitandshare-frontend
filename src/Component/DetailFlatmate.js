@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import ButtonCard from "./ButtonCard";
 import { withAuth } from "../lib/AuthProvider";
 import service from "../api/service";

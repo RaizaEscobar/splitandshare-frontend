@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
-import axios from "axios";
 import service from "../api/service"
 
 export class EditProfile extends Component {
@@ -12,9 +11,9 @@ export class EditProfile extends Component {
   }
 
     componentDidMount = () => {
-        axios.get(`http://localhost:4000/profile/${this.props.user._id}`)
+        service.getFlatmate(this.props.user._id)
         .then(response => {
-            this.setState({user: response.data})
+            this.setState({user: response})
         }) 
     }
 
@@ -45,9 +44,9 @@ export class EditProfile extends Component {
       handleFormSubmit = (event) => {
         event.preventDefault();
         const {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking, smoke, maxAge, minAge } = this.state.user;
-        axios.post(`http://localhost:4000/improveMyProfile/${this.props.user._id}`,  {image,username, gender,age, maxBudget, hasPet, isSmoking, isStudying, isWorking, smoke, maxAge, minAge }).then(response => {
-            console.log(response.data)
-        })
+        service.editUser(this.props.user._id, this.state.user).then(response => {
+          console.log(response)
+      })
       };
     
     
