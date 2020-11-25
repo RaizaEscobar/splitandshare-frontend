@@ -83,10 +83,12 @@ class AddFlat extends Component {
   render() {
     return (
       <div>
+      <div className = "flatmatesList" id="centerAddFlat"  >
         {this.state.redirect && <Redirect to={this.state.redirect} />}
-        <h2>New Flat</h2>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>Name</label>
+        
+        <br></br>
+        <form id="addFlatForm" onSubmit={(e) => this.handleSubmit(e)}>
+          <label>Title</label>
           <input
             type="text"
             name="title"
@@ -154,10 +156,11 @@ class AddFlat extends Component {
             value={this.state.squareMeters}
             onChange={(e) => this.handleChange(e)}
           />
-
+          <label>Upload photo:</label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          <button type="submit">Save</button>
+          <button type="submit" className= "btnB">Save</button>
         </form>
+        </div>
       </div>
     );
   }
