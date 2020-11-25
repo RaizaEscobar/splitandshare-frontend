@@ -3,7 +3,6 @@ import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withAuth } from "../lib/AuthProvider";
-import logo from "../images/logo.png";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +13,8 @@ import {
   faUserFriends,
   faHouseUser,
   faUserPlus,
-  faSignInAlt
+  faSignInAlt,
+  faWarehouse
 } from "@fortawesome/free-solid-svg-icons";
 
 function NavbarItem(props) {
@@ -39,6 +39,7 @@ function NavbarCategory(props) {
 class Navbar extends Component {
   state = {
     activeMenu: false,
+    canRedirect: false
   };
 
   toggleMenu = () => {
@@ -47,20 +48,27 @@ class Navbar extends Component {
     });
   };
 
+  onLogOutClick = () => {
+    this.props.logout();
+    this.setState({canRedirect: true})
+  }
+
   render() {
     return (
+
       <nav
         className={`vertical-nav bg-white ${
           this.props.isActive ? "active" : ""
         }`}
         id="sidebar"
       >
+      {this.state.canRedirect && <Redirect to="/" />}
         <div class="py-4 px-3 mb-4 bg-light">
           <div class="media d-flex align-items-center">
             <div class="media-body">
             {this.props.user && <img src={this.props.user.image} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm"/>}
               {this.props.user && this.props.user.username !== "" && (
-                <h4 class="m-0">{`Hola, ${this.props.user.username}`}</h4>
+                <h4 class="m-0">{`Hi, ${this.props.user.username}`}</h4>
               )}
             </div>
           </div>
@@ -88,7 +96,7 @@ class Navbar extends Component {
             icon={faCalculator}
           />
           {this.props.user && (
-            <div onClick={this.props.logout} className="nav-link text-dark font-italic bg-light link">
+            <div onClick={this.onLogOutClick} className="nav-link text-dark font-italic bg-light link">
               <FontAwesomeIcon
                 icon={faSignOutAlt}
                 style={{ marginRight: "10px" }}
@@ -109,6 +117,18 @@ class Navbar extends Component {
             icon={faUserFriends}
           />
           <NavbarItem title="Find Flats" link="/flats" icon={faHouseUser} />
+        </ul>
+        </>)}
+        {this.props.user && this.props.user.userType==="Flat Owner" && (
+          <>
+          <NavbarCategory title="FLAT" />
+        <ul class="nav flex-column bg-white mb-0">
+          <NavbarItem
+            title="My Flats"
+            link="/myListings"
+            icon={faHouseUser}
+          />
+          <NavbarItem title="Add new flat" link="/addMyFlat" icon={faWarehouse} />
         </ul>
         </>)}
       </nav>
