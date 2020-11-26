@@ -156,6 +156,36 @@ class Service {
       console.log(error);
     }
   }
+
+  sendMessage = async(request) => {
+    try {
+      const res = await this.service.post(`/message/send`,request);
+      return res.data;
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  getMessages = async(id) => {
+    try {
+      const res = await this.service.get(`/messages/${id}`);
+      return res.data;
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  myMessages = async() => {
+    try {
+      const res = await this.service.get(`/myMessages`);
+      return res.data;
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
 }
 
 const axiosRequestFunctions = new Service();

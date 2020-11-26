@@ -49,8 +49,9 @@ class Flatlist extends Component {
     return (
       <div>
       <div className ="flatmatesList">
-      <div className = "">
-        <form onSubmit={this.handleSubmit}>
+      <div className="container-flatlist">
+      <div className = "windowFit">
+        <form id="flatFilter" onSubmit={this.handleSubmit}>
           <label>Minimun Price</label>
           <input type="number" />
           <label>Maximum Price</label>
@@ -89,8 +90,9 @@ class Flatlist extends Component {
             <option value="true">Yes</option>
           </select>
           <button className="btnB">Search</button>
+          
         </form>
-
+        </div>
         <section>
         <div class="card-deck">
           {this.state.flats.map((element, index) => {
@@ -100,7 +102,8 @@ class Flatlist extends Component {
         </section>
         </div>
         </div>
-      </div>
+        </div>
+      
     );
   }
 }
