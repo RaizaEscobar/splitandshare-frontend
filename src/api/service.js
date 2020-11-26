@@ -131,7 +131,7 @@ class Service {
 
   getFlats = async (filter) => {
       try {
-          const res = await this.service.get("/flats", { params: { filter } })          
+          const res = await this.service.get("/flats", { params: { ...filter } })          
           return res.data
       } catch (error) {
         console.log(error);
@@ -140,7 +140,7 @@ class Service {
 
   getUsers = async (filter) => {
     try {
-        const res = await this.service.get("/users", { params: { filter } })          
+        const res = await this.service.get("/users", { params: { ...filter } })          
         return res.data
     } catch (error) {
       console.log(error);
