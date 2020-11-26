@@ -64,7 +64,7 @@ function DetailFlatmate(props) {
         </div>  
        
        { props.user._id === props.match.params.id ? <ButtonCard  buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button  className="btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
-
+        <ButtonCard buttonTitle="Messages" link={`/messages/${props.match.params.id}`} />
        
        </figcaption> 
       </div>
