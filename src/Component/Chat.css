@@ -12,22 +12,31 @@ body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto
 }
+.padding {
+    padding: 3rem
+}
 
 @media (max-width:991.98px) {
     .padding {
-        padding: 1.5rem
+        padding: 0
     }
+
+    
 }
 
 @media (max-width:767.98px) {
     .padding {
-        padding: 1rem
+        padding: 0
     }
+
+    .page-content {
+        width: 100%;
+        margin-left: 0;
+        transition: all 0.4s;
+      }
 }
 
-.padding {
-    padding: 3rem
-}
+
 
 .box.box-warning {
     border-top-color: #f39c12
@@ -36,11 +45,9 @@ body {
 .box {
     position: relative;
     border-radius: 3px;
-    background: #ffffff;
-    border-top: 3px solid #d2d6de;
+    background: transparent;
     margin-bottom: 20px;
     width: 100%;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
 }
 
 .box-header.with-border {
@@ -231,10 +238,11 @@ body {
     border-radius: 5px;
     position: relative;
     padding: 5px 10px;
-    background: #d2d6de;
-    border: 1px solid #d2d6de;
+    background: #A0D9D9;
+    border: 1px solid #A0D9D9;
     margin: 5px 0 0 50px;
-    color: #444
+    color: white;
+    width:60%;
 }
 
 .direct-chat-msg,
@@ -297,7 +305,7 @@ body {
 .direct-chat-info {
     display: block;
     margin-bottom: 2px;
-    font-size: 12px
+    font-size: 12px;
 }
 
 .right .direct-chat-img {
@@ -305,14 +313,15 @@ body {
 }
 
 .direct-chat-warning .right>.direct-chat-text {
-    background: #f39c12;
-    border-color: #f39c12;
+    background: #49868C;
+    border-color: #49868C;
     color: #fff
 }
 
 .right .direct-chat-text {
     margin-right: 50px;
-    margin-left: 0
+    margin-left: 0;
+    float: right;
 }
 
 .box-footer {
