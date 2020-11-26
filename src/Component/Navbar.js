@@ -51,7 +51,6 @@ class Navbar extends Component {
 
   onLogOutClick = () => {
     this.props.logout();
-    this.setState({canRedirect: true})
   }
 
   render() {
