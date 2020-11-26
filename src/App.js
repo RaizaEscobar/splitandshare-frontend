@@ -8,7 +8,6 @@ import Login from "./Component/Login.js";
 import { Route, Switch } from "react-router-dom";
 import AnonRoute from "./Component/AnonRoute.js";
 import PrivateRoute from "./Component/PrivateRoute.js";
-import Private from "./Component/Private.js";
 import AuthProvider from "./lib/AuthProvider.js";
 import DashboardHunter from "./Component/DashboardHunter.js";
 import DetailFlatmate from "./Component/DetailFlatmate";
@@ -57,23 +56,22 @@ function App(props) {
         <img src={logo} alt="logo" className="logo" />
         <Switch>
           <Route exact path="/calculator" component={Calculator} />
-          <AnonRoute path="/signup" component={Signup} />
-          <AnonRoute path="/login" component={Login} />
-          <PrivateRoute path="/private" component={Private} />
+          <AnonRoute exact path="/signup" component={Signup} />
+          <AnonRoute exact path="/login" component={Login} />          
           <Route exact path="/" component={Home} />
-          <PrivateRoute path="/dashboardHunter" component={DashboardHunter} />
-          <PrivateRoute path="/dashboardOwner" component={DashboardOwner} />
+          <PrivateRoute exact path="/dashboardHunter" component={DashboardHunter} />
+          <PrivateRoute exact path="/dashboardOwner" component={DashboardOwner} />
           <PrivateRoute exact path="/flat/:id" component={FlatDetails} />
-          <PrivateRoute path="/addMyFlat" component={AddFlat} />
+          <PrivateRoute exact path="/addMyFlat" component={AddFlat} />
           <PrivateRoute exact path="/flat/edit/:id" component={AddFlat} />
           <PrivateRoute exact path="/flats" component={Flatlist} />
           <PrivateRoute exact path="/myListings" component={MyListings}/> 
-          <Route exact path="/flats/favorites" component={FavoritesFlats} />
-          <Route exact path="/users/favorites" component={FavoritesUsers} />
-          <Route exact path="/user/:id" component={DetailFlatmate} />
-          <PrivateRoute path="/improveMyProfile" component={EditProfile} />
-          <Route exact path="/flatmates" component={FlatmatesList} />
-          <PrivateRoute exact path="/messages/:id" component={Chat} />
+          <PrivateRoute exact path="/flats/favorites" component={FavoritesFlats} />
+          <PrivateRoute exact path="/users/favorites" component={FavoritesUsers} />
+          <PrivateRoute exact path="/user/:id" component={DetailFlatmate} />
+          <PrivateRoute exact path="/improveMyProfile" component={EditProfile} />
+          <PrivateRoute exact path="/flatmates" component={FlatmatesList} />
+          <PrivateRoute exact path="/chat/:id" component={Chat} />
           <PrivateRoute exac path="/myMessages" component={Messages} />
         </Switch>
         </div>

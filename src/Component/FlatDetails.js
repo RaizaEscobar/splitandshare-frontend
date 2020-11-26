@@ -31,7 +31,7 @@ function FlatDetails(props) {
 
       <div className="card-group" id="fixFlatDetailCard">
   <div className="card">
-    <img className="card-img-top" src={flat.flatImages ? flat.flatImages[0] : ""} alt="Card image cap"/>
+    <img className="card-img-top" src={flat.flatImages ? flat.flatImages[0] : ""} alt="Card"/>
     <div className="card-body">
       <h5 className="card-title">{flat.title}</h5>
       <p className="card-text">{flat.description}</p>
@@ -56,7 +56,7 @@ function FlatDetails(props) {
           <li>Central Heating:{flat.centralHeating ? "Yes" : "No"}</li>
         </ul>
     </div>
-    <div class="card-footer" id="flatDetailFooter">
+    <div className="card-footer" id="flatDetailFooter">
     {flat.flatOwner === props.user._id ? <ButtonCard buttonTitle="Edit Flat" link={`/flat/edit/${flat._id}`} /> :  <button className = "btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
       </div>
   </div>

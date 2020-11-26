@@ -23,25 +23,25 @@ class Signup extends Component {
     const { email, password, userType } = this.state;    
     return (
       <div>
-        <div class="container-fluid" id="centerContainer">
-          <div class="row main-content bg-success text-center">
-            <div class="col-md-4 text-center company__info">
-              <span class="company__logo">
+        <div className="container-fluid" id="centerContainer">
+          <div className="row main-content bg-success text-center">
+            <div className="col-md-4 text-center company__info">
+              <span className="company__logo">
                 <h2>
                   {" "}
                   <FontAwesomeIcon icon={faHome} style={{ color: "white" }} />
                 </h2>
               </span>
-              <h4 class="company_title">Split and Share</h4>
+              <h4 className="company_title">Split and Share</h4>
             </div>
-            <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-              <div class="container-fluid">
-                <div class="row">
+            <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
+              <div className="container-fluid">
+                <div className="row">
                   <h2>Sign Up</h2>
                 </div>
-                <div class="row">
+                <div className="row">
                   <form onSubmit={this.handleFormSubmit}>
-                    <div class="row">
+                    <div className="row">
                       <input
                         type="email"
                         name="email"
@@ -51,7 +51,7 @@ class Signup extends Component {
                         onChange={this.handleChange}
                       />
                     </div>
-                    <div class="row">
+                    <div className="row">
                       <input
                         type="password"
                         name="password"
@@ -78,7 +78,7 @@ class Signup extends Component {
                     <input type="submit" className="btnB" value="Signup" />
                   </form>
                   {this.props.message}
-                  <div class="row">
+                  <div className="row">
                     <p style={{ color: "black" }}>Already have an account? </p>
                     <Link to={"/login"}> Login</Link>
                   </div>

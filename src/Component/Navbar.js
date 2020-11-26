@@ -20,7 +20,7 @@ import {
 
 function NavbarItem(props) {
   return (
-    <li class="nav-item">
+    <li className="nav-item">
       <Link to={props.link} className="nav-link text-dark font-italic bg-light">
         <FontAwesomeIcon icon={props.icon} style={{ marginRight: "10px" }} />
         {props.title}
@@ -63,29 +63,22 @@ class Navbar extends Component {
         id="sidebar"
       >
       {this.state.canRedirect && <Redirect to="/" />}
-        <div class="py-4 px-3 mb-4 bg-light">
-          <div class="media d-flex align-items-center">
-            <div class="media-body">
-            {this.props.user && <img src={this.props.user.image} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm"/>}
+        <div className="py-4 px-3 mb-4 bg-light">
+          <div className="media d-flex align-items-center">
+            <div className="media-body">
+            {this.props.user && <img src={this.props.user.image} alt="..." width="65" className="mr-3 rounded-circle img-thumbnail shadow-sm"/>}
               {this.props.user && this.props.user.username !== "" && (
-                <h4 class="m-0">{`Hi, ${this.props.user.username}`}</h4>
+                <h4 className="m-0">{`Hi, ${this.props.user.username}`}</h4>
               )}
             </div>
           </div>
         </div>
         <NavbarCategory title="MAIN" />
-        <ul class="nav flex-column bg-white mb-0">
+        <ul className="nav flex-column bg-white mb-0">
           <NavbarItem title="Home" link="/" icon={faHome} />
           {this.props.user && this.props.user.userType==="Flat Hunter" && (
             <NavbarItem
               title="Profile"
-              link={`/user/${this.props.user._id}`}
-              icon={faUser}
-            />
-          )}
-          {this.props.user && this.props.user.userType==="Flat Owner" && (
-            <NavbarItem
-              title="My flats"
               link={`/user/${this.props.user._id}`}
               icon={faUser}
             />
@@ -107,10 +100,10 @@ class Navbar extends Component {
           {!this.props.user && <NavbarItem title="Log in" link="/login" icon={faSignInAlt}/>}
           {!this.props.user && <NavbarItem title="Sign up" link="/signup" icon={faUserPlus} />}
         </ul>
-        {this.props.user && this.props.user.userType==="Flat Hunter" && (
+        {(!this.props.user || this.props.user.userType==="Flat Hunter") && (
           <>
           <NavbarCategory title="SEARCH" />
-        <ul class="nav flex-column bg-white mb-0">
+        <ul className="nav flex-column bg-white mb-0">
           <NavbarItem
             title="Find Flatmates"
             link="/flatmates"
@@ -123,7 +116,7 @@ class Navbar extends Component {
         {this.props.user && this.props.user.userType==="Flat Owner" && (
           <>
           <NavbarCategory title="FLAT" />
-        <ul class="nav flex-column bg-white mb-0">
+        <ul className="nav flex-column bg-white mb-0">
           <NavbarItem
             title="My Flats"
             link="/myListings"
