@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import service from "../api/service";
 
@@ -8,6 +9,7 @@ export class EditProfile extends Component {
     this.state = {
       user: {},
       disabled: false,
+      redirect: "",
     };
   }
 
@@ -37,9 +39,23 @@ export class EditProfile extends Component {
     let { name, value } = event.target;
     this.setState({
       user: {
-        ...this.state.user,
-        ...this.state.user.searchingFor,
+        ...this.state.user,        
         [name]: value,
+        searchingFor: {...this.state.user.searchingFor},
+      },
+    });
+  };
+
+  handleSearchingChange= (event) => {
+    let { name, value } = event.target;
+    this.setState({
+      user: {
+        ...this.state.user,
+        searchingFor:{
+          ...this.state.user.searchingFor,
+          [name]: value,
+        }
+          
       },
     });
   };
@@ -47,13 +63,14 @@ export class EditProfile extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     service.editUser(this.props.user._id, this.state.user).then((response) => {
-      console.log(response);
+      this.setState({ redirect: `/user/${this.props.user._id}` });
     });
   };
 
   render() {
     return (
       <div>
+      {this.state.redirect && <Redirect to={this.state.redirect} />}
         <div className="flatmatesList" id="profileCntr">
           <form id="formEditProfile" onSubmit={(e) => this.handleFormSubmit(e)}>
             <div className="editProfContainer">
@@ -192,7 +209,7 @@ export class EditProfile extends Component {
                       ? this.state.user.searchingFor.gender
                       : ""
                   }
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={(e) => this.handleSearchingChange(e)}
                 >
                   <option value="female">Female</option>
                   <option value="male">Male</option>
@@ -203,13 +220,13 @@ export class EditProfile extends Component {
                   <b>Pets</b>{" "}
                 </label>
                 <select
-                  name="hasPet"
+                  name="pets"
                   value={
                     this.state.user.searchingFor
-                      ? this.state.user.searchingFor.hasPet
+                      ? this.state.user.searchingFor.pets
                       : ""
                   }
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={(e) => this.handleSearchingChange(e)}
                 >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
@@ -226,7 +243,7 @@ export class EditProfile extends Component {
                       ? this.state.user.searchingFor.smoke
                       : ""
                   }
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={(e) => this.handleSearchingChange(e)}
                 >
                   <option value="true">Yes</option>
                   <option value="false">No</option>
@@ -244,7 +261,7 @@ export class EditProfile extends Component {
                       ? this.state.user.searchingFor.minAge
                       : ""
                   }
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={(e) => this.handleSearchingChange(e)}
                 />
                 <label>
                   {" "}
@@ -258,7 +275,7 @@ export class EditProfile extends Component {
                       ? this.state.user.searchingFor.maxAge
                       : ""
                   }
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={(e) => this.handleSearchingChange(e)}
                 />
                 <button
                   type="submit"
