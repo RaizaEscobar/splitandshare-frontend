@@ -90,6 +90,10 @@ code {
 	 width: 65%;
 	 padding: 5% 10%;
 }
+
+#containerFlatList{
+  padding: 20px
+}
  h1 {
 	 align-self: center;
 }
@@ -252,7 +256,8 @@ option:hover, option:focus {
 	 input {
 		 margin: 5px 0;
 		 max-height: 30px;
-	}
+  }
+ 
 }
  
 /* LOGIN */
@@ -288,7 +293,8 @@ option:hover, option:focus {
 	.login_form{
 		border-top-left-radius:20px;
 		border-bottom-left-radius:20px;
-	}
+  }
+
 }
 @media screen and (min-width: 642px) and (max-width:800px){
 	.main-content{width: 70%;}
@@ -655,6 +661,10 @@ a:focus {
     .flatmatesList {
         display: inline-block; 
     }
+    .favoriteFlatsGrid {
+      display: inline-block;
+     
+  }
     }
 
   .stickTheForm form{

@@ -90,7 +90,7 @@ class FlatmatesList extends Component {
         <section>
           <div>
          <div className = "favoriteUsers-container">
-         <div className="container">
+         <div id="containerFlatList"  >
 	<div className="row">
           {this.state.flatmates.map((element, index) => {
             return <MatchFlatmate key={index} {...element} />;
