@@ -8,8 +8,7 @@ function Messages(props) {
 
   useEffect(() => {
     if (messages.length === 0) {
-      service.myMessages().then((response) => {
-        console.log(response);
+      service.myMessages().then((response) => {        
         setMessages(response);
       });
     }
@@ -22,7 +21,7 @@ function Messages(props) {
       {messages.map((element, index) => {
         return (
           <li className="singleMessage">
-            <Link to={`/messages/${element._id}`}><p>{element.username !== "" ? element.username : element.email}</p></Link>
+            <Link to={`/chat/${element._id}`}><p>{element.username !== "" ? element.username : element.email}</p></Link>
           </li>
           )
       })}

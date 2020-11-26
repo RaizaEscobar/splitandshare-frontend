@@ -12,7 +12,7 @@ function DetailFlatmate(props) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    if(Object.keys(flatmate).length===0){
+    if(Object.keys(flatmate).length===0 || flatmate._id !== props.match.params.id){
     service.getFlatmate(props.match.params.id)
     .then((response) => {      
       setFlatmate(response)
@@ -31,9 +31,9 @@ function DetailFlatmate(props) {
 
   return (
     <div className = "detailFlatmate-container">
-    <figure class="snip1515">
+    <figure className="snip1515">
       <div>
-      <div class="profile-image"> <img src={flatmate.image} alt="Profile" width="250" height="300"></img></div>
+      <div className="profile-image"> <img src={flatmate.image} alt="Profile" width="250" height="300"></img></div>
       </div>
       <div>
       <figcaption>
@@ -64,7 +64,7 @@ function DetailFlatmate(props) {
         </div>  
        
        { props.user._id === props.match.params.id ? <ButtonCard  buttonTitle="Edit my profile" link="/improveMyProfile"  /> : <button  className="btnB" onClick={handleFavorite}>{isFavorite ? "remove from favorite" : "add to favorite"}</button>}
-        <ButtonCard buttonTitle="Messages" link={`/messages/${props.match.params.id}`} />
+        <ButtonCard buttonTitle="Messages" link={`/chat/${props.match.params.id}`} />
        
        </figcaption> 
       </div>

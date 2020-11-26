@@ -59,8 +59,7 @@ componentDidMount() {
 
     auth.login({ email, password })
       .then((user) => this.setState({ isLoggedin: true, user }))
-      .catch(({response}) => {
-      console.log(response)
+      .catch(({response}) => {      
       this.setState({ message: response.data.message})});
   };
 

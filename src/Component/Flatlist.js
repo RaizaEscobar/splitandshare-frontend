@@ -94,7 +94,7 @@ class Flatlist extends Component {
         </form>
         </div>
         <section>
-        <div class="card-deck">
+        <div className="card-deck">
           {this.state.flats.map((element, index) => {
             return <FlatlistCard key={index} {...element} />;
           })}
