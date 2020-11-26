@@ -13,7 +13,7 @@ function NewMessage(props){
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text"/>
+            <input type="text" style={{width:"90%"}}/>
             <button>Send</button>
         </form>    
     )

@@ -20,7 +20,7 @@ function Chat(props) {
     <div class="page-content page-container" id="page-content">
       <div class="padding">
         <div class="row container d-flex justify-content-center">
-          <div class="col-md-4">
+          <div style={{width:"80%"}}>
             <div class="box box-warning direct-chat direct-chat-warning">
               <div class="box-body">
                 {messages.map((element, index) => {
