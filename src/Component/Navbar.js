@@ -14,7 +14,8 @@ import {
   faHouseUser,
   faUserPlus,
   faSignInAlt,
-  faWarehouse
+  faWarehouse,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 
 function NavbarItem(props) {
@@ -117,6 +118,7 @@ class Navbar extends Component {
             icon={faUserFriends}
           />
           <NavbarItem title="Find Flats" link="/flats" icon={faHouseUser} />
+          <NavbarItem title="Messages" link="/myMessages" icon={faEnvelope} />
         </ul>
         </>)}
         {this.props.user && this.props.user.userType==="Flat Owner" && (

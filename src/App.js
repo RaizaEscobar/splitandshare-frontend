@@ -25,6 +25,8 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
 import MyListings from './Component/MyListings'
 import Home from './Component/Home.js'
+import Chat from './Component/Chat.js';
+import Messages from "./Component/Messages";
 
 function App(props) {
   const [isActive, setIsActive] = useState(true)
@@ -71,6 +73,8 @@ function App(props) {
           <Route exact path="/user/:id" component={DetailFlatmate} />
           <PrivateRoute path="/improveMyProfile" component={EditProfile} />
           <Route exact path="/flatmates" component={FlatmatesList} />
+          <PrivateRoute exact path="/messages/:id" component={Chat} />
+          <PrivateRoute exac path="/myMessages" component={Messages} />
         </Switch>
         </div>
       </div>
