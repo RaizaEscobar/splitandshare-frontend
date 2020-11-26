@@ -10,19 +10,18 @@ function Chat(props) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    service.getMessages(props.match.params.id).then((response) => {
-      console.log(response);
+    service.getMessages(props.match.params.id).then((response) => {      
       setMessages(response);
     });
   });
 
   return (
-    <div class="page-content page-container" id="page-content">
-      <div class="padding">
-        <div class="row container d-flex justify-content-center">
+    <div className="page-content page-container" id="page-content">
+      <div className="padding">
+        <div className="row container d-flex justify-content-center">
           <div style={{width:"80%"}}>
-            <div class="box box-warning direct-chat direct-chat-warning">
-              <div class="box-body">
+            <div className="box box-warning direct-chat direct-chat-warning">
+              <div className="box-body">
                 {messages.map((element, index) => {
                   return (
                     <div
@@ -32,8 +31,8 @@ function Chat(props) {
                           : "direct-chat-msg"
                       }
                     >
-                      <FontAwesomeIcon class="direct-chat-img" icon={faUser} />
-                      <div class="direct-chat-text"> {element.text} </div>
+                      <FontAwesomeIcon className="direct-chat-img" icon={faUser} />
+                      <div className="direct-chat-text"> {element.text} </div>
                     </div>
                   );
                 })}

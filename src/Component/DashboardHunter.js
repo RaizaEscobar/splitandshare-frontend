@@ -29,14 +29,11 @@ function DashboardHunter(props) {
       itemsToShow: 3,
     }
   ];
-  useEffect(() => {
-    console.log(props);
+  useEffect(() => {   
     if (isLoading) {
-      service.suggestedUsers().then((response) => {
-        console.log(response);
+      service.suggestedUsers().then((response) => {        
         setSuggestedUsers(response);
-        setIsLoading(false);
-        console.log(response);
+        setIsLoading(false);        
       });
     }
   });
@@ -64,6 +61,7 @@ function DashboardHunter(props) {
         />
       </section>
       <section>
+      <p style={{fontSize: "30px", fontWeight:"bolder"}}>Look these profiles that match with you...</p>
         <div className="matchContainer">
           <div className="match">
             <Carousel breakPoints={breakPoints}>
