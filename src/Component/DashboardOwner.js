@@ -20,7 +20,7 @@ import {
         <FavoriteCard
           title="My flats"
           buttonTitle="Check my list of flats"
-          link="/myListing"
+          link="/myListings"
           icon={faHouseUser}
         />
       </section>
